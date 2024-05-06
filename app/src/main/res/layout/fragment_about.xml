@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/eggshell_white">
+
+    <ScrollView
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="@dimen/match_constraint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_16_dp"
+            android:layout_marginEnd="@dimen/distance_16_dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/distance_18_dp"
+            android:paddingBottom="@dimen/distance_18_dp">
+
+            <ImageView
+                android:id="@+id/about_logo"
+                android:layout_width="@dimen/distance_96_dp"
+                android:layout_height="@dimen/distance_96_dp"
+                android:src="@drawable/ic_nthlink_logo_blue" />
+
+            <TextView
+                android:id="@+id/about_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/work_sans_normal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_16_sp"
+                tools:text="@string/about_version" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_24_dp"
+                android:fontFamily="@font/work_sans_normal"
+                android:lineSpacingExtra="@dimen/distance_10_dp"
+                android:text="@string/about_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_20_sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

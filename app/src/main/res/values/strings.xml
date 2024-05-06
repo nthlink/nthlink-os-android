@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">nthLink</string>
+    <string name="percentage" translatable="false">%d %%</string>
+    <string name="ok" translatable="false">OK</string>
+
+    <string name="privacy_notice_title">Your privacy comes first</string>
+    <string name="privacy_notice_text">nthLink DOES NOT collect personally identifiable information or websites / online services that you visit. nthLink uses your IP address, device’s default language, cookies, and basic device information ( e.g. operating system information ) to customize the services that you receive such as locating the nearest servers that can best support your device and displaying the proper web page upon connecting to the nthLink server.</string>
+    <string name="privacy_notice_submit">Accept and continue</string>
+
+    <string name="connection_hint_connect">Tap To Connect</string>
+    <string name="connection_hint_disconnect">Tap To Disconnect</string>
+    <string name="connection_label_connect">Connect</string>
+    <string name="connection_label_disconnect">Disconnect</string>
+    <string name="connection_server_state_connected">Connected</string>
+    <string name="connection_server_state_connecting">Connecting…</string>
+    <string name="connection_server_state_disconnecting">Disconnecting…</string>
+
+    <string name="feedback_page_title">Feedback</string>
+    <string name="feedback_issue_category_title">Issue category</string>
+    <string name="feedback_email_title" translatable="false">Email</string>
+    <string name="feedback_description_title">Description</string>
+    <string name="feedback_note_text">Your description, email address (if provided), and additional information will be sent to the nthLink team. Please refer to the nthLink website\'s Privacy Policy for our data collection policy.</string>
+    <string name="feedback_submit">Send</string>
+    <string name="feedback_submit_failed_message">Can\'t connect to nthlink server.</string>
+    <string name="feedback_submit_success_message">Thanks for helping us improve! We love hearing from you.</string>
+    <string name="feedback_init_failed_message">Don\'t have a server</string>
+
+    <string name="about_page_title">About</string>
+    <string name="about_version">Version %s</string>
+    <string name="about_text">We are a group of experienced software and information security engineers who started nthLink in 2016 to support human rights lawyers who needed to obtain restricted information and to express their perspectives. Since then we’ve made the service available to the wider public. Our development team are experts in both network security technology and service reliability.\n\nOur service is free and will remain free thanks to our sponsors and partners. They are:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nOur development team excels in both the sophistication of censorship circumvention technology and the reliability of the service. With years of experience in this specialty area, we provide the users in targeted geographies simple, safe, and reliable access to otherwise censored information.</string>
+
+    <string name="menu_drawer_item_1">Status</string>
+    <string name="menu_drawer_item_2">@string/feedback_page_title</string>
+    <string name="menu_drawer_item_3">@string/about_page_title</string>
+    <string name="menu_drawer_item_4">Help</string>
+    <string name="menu_drawer_item_5">Rate App</string>
+
+    <string name="menu_web_item_1">Copy link</string>
+    <string name="menu_web_item_2">Open in browser</string>
+    <string name="menu_web_item_3">Share link</string>
+
+    <string name="menu_connection_item_1">Landing Page</string>
+
+    <string name="word_loading">Loading</string>
+    <string name="word_coped_link">Coped link</string>
+
+    <string-array name="issue_categories">
+        <item>General feedback</item>
+        <item>Cannot connect</item>
+        <item>Connection speed is slow</item>
+        <item>Suggestions</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="error_title" translatable="false">Oops…</string>
+    <string name="error_no_permission" translatable="false">We need permission to start VPN.</string>
+    <string name="error_no_internet" translatable="false">Unstable network. Please check your internet connection.</string>
+    <string name="error_directory_server" translatable="false">We got problems with Directory Server. Please contact customer service.</string>
+    <string name="error_vpn_service" translatable="false">We got problems with VPN Service. Please contact customer service.</string>
+
+    <string name="privacy_policy" translatable="false">Privacy Policy</string>
+    <string name="privacy_policy_link" translatable="false"><u>Privacy Policy</u></string>
+    <string name="privacy_policy_content" translatable="false">nthLink does not collect personally identifiable information and does not track which websites or online services you visit. nthLink may use your IP address, your device’s default language, cookies, and basic information on your operating system information (Android or iOS) to customize the services that you receive. This allows us to locate the nearest servers that can best support your device.</string>
+    <string name="terms_of_use" translatable="false">Terms of Use</string>
+    <string name="terms_of_use_content" translatable="false">By accessing, downloading, or using nthLink, you are agreeing to the terms of services below. The Agreement is a binding contract between you and nthLink regarding your use of nthLink.\n\n<b>License.</b> nthLink is made available by nthLink under the Apache 2.0 license.\n<b>Assumption of Risk.</b> You may use nthLink and invite others to use nthLink only as permitted by law. We encourage you to check local laws and regulations before using nthLink.\n<b>Your content.</b> Content that you upload, submit, store, send or receive through nthLink Servers (“Your Content”) is not uploaded or submitted to nthLink. We do not know what you are sending with nthLink.\n<b>Copyright notices.</b> nthLink does not host or store any content that you access through nthLink Servers. Any notices of alleged copyright infringement or other legal notices relating to content hosted, stored, sent or received via nthLink Servers should be dealt with by you or directed to your Service Provider.</string>
+    <string name="read_latest_news" translatable="false"><u>Read Latest News</u></string>
+</resources>

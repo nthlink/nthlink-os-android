@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/launch_graph"
+    app:startDestination="@id/launchFragment">
+
+    <fragment
+        android:id="@+id/launchFragment"
+        android:name="com.nthlink.android.client.ui.launch.LaunchFragment"
+        tools:layout="@layout/fragment_launch">
+
+        <action
+            android:id="@+id/action_launchFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment"
+            app:popUpTo="@id/launch_graph" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/privacyFragment"
+        android:name="com.nthlink.android.client.ui.privacy.PrivacyFragment"
+        tools:layout="@layout/fragment_privacy" />
+
+</navigation>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/bottomSheetStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bottom_sheet_background"
+    android:orientation="vertical"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <ImageView
+        android:id="@+id/drag_handle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/distance_24_dp"
+        android:paddingBottom="@dimen/distance_24_dp"
+        android:src="@drawable/ic_resistance" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/toggle"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/distance_28_dp"
+        android:layout_marginEnd="@dimen/distance_28_dp"
+        android:layout_marginBottom="@dimen/distance_18_dp"
+        android:fontFamily="@font/work_sans_normal"
+        android:paddingTop="@dimen/distance_16_dp"
+        android:paddingBottom="@dimen/distance_16_dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/distance_18_dp"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/distance_12_dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="@dimen/distance_3_dp"
+        tools:text="@string/connection_label_connect" />
+
+</LinearLayout>

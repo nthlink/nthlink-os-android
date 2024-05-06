@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/distance_18_dp"
+    android:layout_marginEnd="@dimen/distance_18_dp"
+    android:background="@drawable/shape_border_grey"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/distance_8_dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bell" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/distance_6_dp"
+        android:layout_marginEnd="@dimen/distance_6_dp"
+        android:layout_weight="1"
+        tools:text="最新消息！nthLink 推出了 Windows 版本拉！" />
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+
+    <string name="privacy_notice_title">Ваша приватност је на првом месту</string>
+
+    <string name="privacy_notice_text">nthLink НЕ прикупља личне информације или веб локације / онлајн услуге које посећујете. nthLink користи вашу IP адресу, подразумевани језик уређаја, колачиће и основне информације о уређају ( нпр. информације о оперативном систему) да би прилагодио услуге које добијате, као што је лоцирање најближих сервера који могу најбоље да подрже ваш уређај и приказивање одговарајуће веб странице након повезивања на nthLink сервер.</string>
+
+    <string name="privacy_notice_submit">Прихватите и наставите</string>
+
+    <string name="connection_hint_connect">Додирните за повезивање</string>
+
+    <string name="connection_hint_disconnect">Додирните да бисте прекинули везу</string>
+
+    <string name="connection_label_connect">Повежите се</string>
+
+    <string name="connection_label_disconnect">Прекини везу</string>
+
+    <string name="connection_server_state_connected">Повезано</string>
+
+    <string name="connection_server_state_connecting">Повезивање…</string>
+
+    <string name="connection_server_state_disconnecting">Прекидање везе…</string>
+
+    <string name="feedback_page_title">Повратна информација</string>
+
+    <string name="feedback_issue_category_title">Категорија издања</string>
+
+
+    <string name="feedback_description_title">Опис</string>
+
+    <string name="feedback_note_text">Ваш опис, адреса е-поште (ако је наведена) и додатне информације биће послате тиму nthLink. Молимо погледајте Политику приватности веб-сајта nthLink за нашу политику прикупљања података.</string>
+
+    <string name="feedback_submit">Пошаљи</string>
+
+    <string name="feedback_submit_failed_message">Не могу да се повежем на nthLink сервер.</string>
+
+    <string name="feedback_submit_success_message">Хвала што нам помажете да побољшамо! Волимо да чујемо од вас.</string>
+
+    <string name="feedback_init_failed_message">Немате сервер</string>
+
+    <string name="about_page_title">О</string>
+
+    <string name="about_version">Верзија %s</string>
+
+    <string name="about_text">Ми смо група искусних инжењера за софтвер и безбедност информација који су покренули нтхЛинк 2016. године како би подржали адвокате за људска права који су морали да добију ограничене информације и да изразе своје ставове. Од тада смо услугу учинили доступном широј јавности. Наш развојни тим су стручњаци и за технологију мрежне безбедности и за поузданост услуга.\n\nНаша услуга је бесплатна и остаће бесплатна захваљујући нашим спонзорима и партнерима. Су:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nНаш развојни тим се истиче како у софистицираности технологије заобилажења цензуре, тако иу поузданости услуге. Са дугогодишњим искуством у овој специјалној области, корисницима у циљаним географским подручјима пружамо једноставан, безбедан и поуздан приступ иначе цензурисаним информацијама.</string>
+
+    <string name="menu_drawer_item_1">Насловна</string>
+
+    <string name="menu_drawer_item_2">@string/feedback_page_title</string>
+
+    <string name="menu_drawer_item_3">@string/about_page_title</string>
+
+    <string name="menu_drawer_item_4">Помоћ</string>
+
+    <string name="menu_drawer_item_5">Рангирај апликацију</string>
+
+    <string name="menu_web_item_1">Копирај везу</string>
+
+    <string name="menu_web_item_2">Отвори у претраживачу</string>
+
+    <string name="menu_web_item_3">Подели везу</string>
+
+    <string name="menu_connection_item_1">Почетне странице</string>
+
+    <string name="word_loading">Учитавање</string>
+
+    <string name="word_coped_link">Покривен линк</string>
+
+    <string-array name="issue_categories">
+
+        <item>Опште повратне информације</item>
+
+        <item>Не може да се повеже</item>
+
+        <item>Брзина везе је мала</item>
+
+        <item>Предлози</item>
+
+        <item>Остало</item>
+
+    </string-array>
+
+</resources>

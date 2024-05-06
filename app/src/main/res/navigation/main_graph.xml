@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/connectionFragment">
+
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="com.nthlink.android.client.ui.connection.ConnectionFragment"
+        tools:layout="@layout/fragment_connection">
+        <action
+            android:id="@+id/action_connectionFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_to_feedbackFragment"
+            app:destination="@id/feedbackFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.nthlink.android.client.ui.about.AboutFragment"
+        android:label="@string/about_page_title"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.nthlink.android.client.ui.feedback.FeedbackFragment"
+        android:label="@string/feedback_page_title"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.nthlink.android.client.ui.web.WebFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_web">
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+
+    <string name="privacy_notice_title">Vaše soukromí je na prvním místě</string>
+
+    <string name="privacy_notice_text">nthLink NESHROMAŽĎUJE osobně identifikovatelné informace ani webové stránky/online služby, které navštívíte. nthLink používá vaši IP adresu, výchozí jazyk zařízení, soubory cookie a základní informace o zařízení ( např. informace o operačním systému) k přizpůsobení služeb, které dostáváte, jako je vyhledání nejbližších serverů, které mohou nejlépe podporovat vaše zařízení, a zobrazení správné webové stránky po připojení k server nthLink.</string>
+
+    <string name="privacy_notice_submit">Přijmout a pokračovat</string>
+
+    <string name="connection_hint_connect">Klepněte na Pro připojení</string>
+
+    <string name="connection_hint_disconnect">Klepněte na Pro odpojení</string>
+
+    <string name="connection_label_connect">Připojit</string>
+
+    <string name="connection_label_disconnect">Odpojit</string>
+
+    <string name="connection_server_state_connected">Připojeno</string>
+
+    <string name="connection_server_state_connecting">Spojovací…</string>
+
+    <string name="connection_server_state_disconnecting">Odpojování…</string>
+
+    <string name="feedback_page_title">Zpětná vazba</string>
+
+    <string name="feedback_issue_category_title">Kategorie problému</string>
+
+
+    <string name="feedback_description_title">Popis</string>
+
+    <string name="feedback_note_text">Váš popis, e-mailová adresa (pokud je uvedena) a další informace budou zaslány týmu nthLink. Naše zásady shromažďování údajů naleznete v zásadách ochrany osobních údajů webu nthLink.</string>
+
+    <string name="feedback_submit">Poslat</string>
+
+    <string name="feedback_submit_failed_message">Nelze se připojit k serveru nthlink.</string>
+
+    <string name="feedback_submit_success_message">Děkujeme, že nám pomáháte zlepšovat se! Rádi vás slyšíme.</string>
+
+    <string name="feedback_init_failed_message">Nemáte server</string>
+
+    <string name="about_page_title">O</string>
+
+    <string name="about_version">Verze %s</string>
+
+    <string name="about_text">Jsme skupina zkušených softwarových a informačních bezpečnostních inženýrů, kteří spustili nthLink v roce 2016 na podporu právníků v oblasti lidských práv, kteří potřebovali získat omezené informace a vyjádřit své názory. Od té doby jsme službu zpřístupnili široké veřejnosti. Náš vývojový tým je odborníky jak na technologii zabezpečení sítě, tak na spolehlivost služeb.\n\nNaše služba je bezplatná a zůstane bezplatná díky našim sponzorům a partnerům. Oni jsou:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nNáš vývojový tým vyniká jak propracovaností technologie obcházení cenzury, tak spolehlivostí služeb. Díky dlouholetým zkušenostem v této speciální oblasti poskytujeme uživatelům v cílených geografických oblastech jednoduchý, bezpečný a spolehlivý přístup k jinak cenzurovaným informacím.</string>
+
+    <string name="menu_drawer_item_1">Domov</string>
+
+    <string name="menu_drawer_item_2">@string/feedback_page_title</string>
+
+    <string name="menu_drawer_item_3">@string/about_page_title</string>
+
+    <string name="menu_drawer_item_4">Pomoc</string>
+
+    <string name="menu_drawer_item_5">Ohodnoťte aplikaci</string>
+
+    <string name="menu_web_item_1">Kopírovat odkaz</string>
+
+    <string name="menu_web_item_2">Otevřít v prohlížeči</string>
+
+    <string name="menu_web_item_3">Sdílet odkaz</string>
+
+    <string name="menu_connection_item_1">Vstupní stránka</string>
+
+    <string name="word_loading">načítání</string>
+
+    <string name="word_coped_link">Zvládnutý odkaz</string>
+
+    <string-array name="issue_categories">
+
+        <item>Obecná zpětná vazba</item>
+
+        <item>Nelze spojit</item>
+
+        <item>Rychlost připojení je pomalá</item>
+
+        <item>Návrhy</item>
+
+        <item>Jiný</item>
+
+    </string-array>
+
+</resources>

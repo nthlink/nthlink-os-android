@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/distance_8_dp"
+    android:paddingBottom="@dimen/distance_8_dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/distance_18_dp"
+        android:layout_marginEnd="@dimen/distance_18_dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="@dimen/distance_6_dp"
+        android:maxLines="2"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="时事看台: 拜登批中国缺乏承诺 如何加强全球气候合作？" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="欧美等国领导人齐聚格拉斯哥，出席星期..." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
