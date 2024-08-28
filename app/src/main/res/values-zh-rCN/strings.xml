@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">您的隐私至上</string>
     <string name="privacy_notice_text">nthLink 不会收集您访问的个人身份信息或网站 / 在线服务。nthLink 使用您的 IP 地址、设备的默认语言、cookie 和基本设备信息（例如操作系统信息）来定制您收到的服务，例如定位最能支持您的设备的最近服务器并在连接到 nthLink 服务器时显示正确的网页。</string>
     <string name="privacy_notice_submit">同意并继续</string>
@@ -11,6 +9,7 @@
     <string name="connection_label_connect">连接</string>
     <string name="connection_label_disconnect">断开连接</string>
     <string name="connection_server_state_connected">已连接</string>
+    <string name="connection_server_state_initializing">初始化中…</string>
     <string name="connection_server_state_connecting">正在连接…</string>
     <string name="connection_server_state_disconnecting">正在断开…</string>
 
@@ -41,7 +40,7 @@
     <string name="menu_connection_item_1">首页</string>
 
     <string name="word_loading">正在加载</string>
-    <string name="word_coped_link">连结已复制</string>
+    <string name="word_copied_link">连结已复制</string>
 
     <string-array name="issue_categories">
         <item>一般反馈</item>
@@ -51,4 +50,21 @@
         <item>其他</item>
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/zh/#faq</string>
+    <string name="url_policies">https://nthlink.com/zh/policies/</string>
+
+    <string name="download">下载</string>
+
+    <string name="copied">已复制</string>
+    <string name="copied_telegram_id">请在 Telegram 上粘贴 ID。</string>
+
+    <string name="update">更新</string>
+    <string name="update_is_up_to_date">您的应用是最新的版本</string>
+    <string name="update_canceled">更新已取消</string>
+    <string name="update_has_new_apk">nthlink 有新版本。您想下载吗？</string>
+
+    <string name="something_went_wrong">出了点问题。请再试一次。</string>
+
+    <string name="follow_us">关注我们</string>
+    <string name="visit">访问</string>
 </resources>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Vaše soukromí je na prvním místě</string>
 
     <string name="privacy_notice_text">nthLink NESHROMAŽĎUJE osobně identifikovatelné informace ani webové stránky/online služby, které navštívíte. nthLink používá vaši IP adresu, výchozí jazyk zařízení, soubory cookie a základní informace o zařízení ( např. informace o operačním systému) k přizpůsobení služeb, které dostáváte, jako je vyhledání nejbližších serverů, které mohou nejlépe podporovat vaše zařízení, a zobrazení správné webové stránky po připojení k server nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Připojeno</string>
 
+    <string name="connection_server_state_initializing">Inicializace…</string>
+
     <string name="connection_server_state_connecting">Spojovací…</string>
 
     <string name="connection_server_state_disconnecting">Odpojování…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Zpětná vazba</string>
 
     <string name="feedback_issue_category_title">Kategorie problému</string>
-
 
     <string name="feedback_description_title">Popis</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">načítání</string>
 
-    <string name="word_coped_link">Zvládnutý odkaz</string>
+    <string name="word_copied_link">Zvládnutý odkaz</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Stáhnout</string>
+
+    <string name="copied">Zkopírováno</string>
+
+    <string name="copied_telegram_id">Prosím vložte ID na Telegram.</string>
+
+    <string name="update">Aktualizovat</string>
+    <string name="update_is_up_to_date">Vaše aplikace je aktuální</string>
+    <string name="update_canceled">Aktualizace byla zrušena</string>
+    <string name="update_has_new_apk">Existuje nová verze nthlink. Chcete stáhnout?</string>
+
+    <string name="something_went_wrong">Něco se pokazilo. Zkuste to prosím znovu.</string>
+
+    <string name="follow_us">Sledujte nás</string>
+    <string name="visit">Navštívit</string>
 </resources>

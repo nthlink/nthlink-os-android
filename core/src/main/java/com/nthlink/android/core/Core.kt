@@ -2,66 +2,63 @@ package com.nthlink.android.core
 
 import com.nthlink.android.core.utils.EMPTY
 
-object Core {
-
+internal object Core {
     fun encrypt(text: String): String {
-        // TODO implement your encryption
+        // TODO Not yet implemented
         return text
     }
 
-    fun decrypt(cipherText: String): String {
-        // TODO implement your decryption
-        return cipherText
+    fun decrypt(text: String): String {
+        // TODO Not yet implemented
+        return text
     }
 
     fun getConfig(): String {
-        // TODO implement your configuration
-        // example configuration
+        // TODO Not yet implemented
         return """
             {
-                "servers": [
-                    {
-                        "protocol": "outline",
-                        "host": "1.2.3.4",
-                        "port": 443,
-                        "password": "password",
-                        "encrypt_method": "encrypt method",
-                        "sni": "www.domain.com",
-                        "ws": false,
-                        "ws_path": "/path"
-                    }
-                ],
-                "redirectUrl": "https://www.nthlink.com/",
-                "headlineNews": [
-                    {
-                        "title": "俄军攻陷阿夫迪夫卡加剧对美国援助议案的反应",
-                        "excerpt": "",
-                        "image": "",
-                        "url": "https://www.voachinese.com/a/avdiivka-loss-intensified-debates-20240218/7493071.html?utm_medium=proxy\u0026utm_campaign=persagg\u0026utm_source=nthlink\u0026utm_content=image"
-                    },
-                    {
-                        "title": "中国对乌克兰说，不向俄罗斯出售“致命武器”",
-                        "excerpt": "",
-                        "image": "",
-                        "url": "https://www.voachinese.com/a/china-not-selling-lethal-weapons-to-russia-20240218/7492718.html?utm_medium=proxy\u0026utm_campaign=persagg\u0026utm_source=nthlink\u0026utm_content=image"
-                    },
-                    {
-                        "title": "中国同意解除西班牙牛肉进口禁令",
-                        "excerpt": "",
-                        "image": "",
-                        "url": "https://www.voachinese.com/a/china-agrees-to-lift-ban-on-spanish-beef-imports/7492716.html?utm_medium=proxy\u0026utm_campaign=persagg\u0026utm_source=nthlink\u0026utm_content=image"
-                    }
-                ],
-                "notifications": [
-                    {
-                        "title": "nthLink for Windows",
-                        "url": "https://www.nthlink.com/"
-                    },
-                    {
-                        "title": "We have updated our Privacy Policy",
-                        "url": "https://www.nthlink.com/"
-                    }
-                ]
+              "servers": [
+                {
+                  "protocol": "",
+                  "host": "www.abc.com",
+                  "port": "443",
+                  "password": "password",
+                  "sni": "www.abc.com",
+                  "ws": true,
+                  "ws_path": "/abc",
+                  "ips": [
+                    "1.1.1.1",
+                    "2.2.2.2",
+                    "3.3.3.3"
+                  ],
+                  "ws_host": "www.abc.com"
+                }
+              ],
+              "redirectUrl": "https://www.persagg.com/zh/?utm_medium=proxy&utm_source=nthlink",
+              "headlineNews": [
+                {
+                  "title": "台湾明年国防预算再创新高,美专家称在遏阻中国侵台方面仍不足以缓解担忧",
+                  "excerpt": "",
+                  "image": "",
+                  "url": "https://www.voachinese.com/a/experts-debate-on-taiwans-defense-spending-as-president-lai-annouced-largest-increase-20240813/7741584.html?utm_medium=proxy&utm_campaign=persagg&utm_source=nthlink&utm_content=image"
+                },
+                {
+                  "title": "缅甸军方官员：中国外长王毅东南亚之行期间将会晤军政府首脑",
+                  "excerpt": "",
+                  "image": "",
+                  "url": "https://www.voachinese.com/a/china-fm-to-meet-myanmar-junta-chief-on-se-asia-trip-military-official-20240813/7741556.html?utm_medium=proxy&utm_campaign=persagg&utm_source=nthlink&utm_content=image"
+                }
+              ],
+              "notifications": [
+                {
+                  "title": "Download nthLink",
+                  "url": "https://www.downloadnth.com/download.html"
+                }
+              ],
+              "domainKeys": [],
+              "static": false,
+              "use_custom": false,
+              "custom": ""
             }
         """.trimIndent()
     }
@@ -72,6 +69,6 @@ object Core {
         appVersion: String = EMPTY,
         email: String = EMPTY
     ) {
-        // TODO implement your feedback
+        // TODO Not yet implemented
     }
 }

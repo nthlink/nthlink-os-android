@@ -9,57 +9,63 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.MenuProvider
 import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.nthlink.android.client.App.Companion.TAG
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.FragmentConnectionBinding
-import com.nthlink.android.client.storage.readConnectedCount
-import com.nthlink.android.client.storage.readHasLandingPageShown
-import com.nthlink.android.client.storage.saveConnectedCount
-import com.nthlink.android.client.storage.saveHasLandingPageShown
-import com.nthlink.android.client.ui.MainViewModel
+import com.nthlink.android.client.storage.datastore.readConnectedCount
+import com.nthlink.android.client.storage.datastore.readHasLandingPageShown
+import com.nthlink.android.client.storage.datastore.saveConnectedCount
+import com.nthlink.android.client.storage.datastore.saveHasLandingPageShown
+import com.nthlink.android.client.storage.sql.NewsAnalyzer
 import com.nthlink.android.client.utils.MarginItemDecoration
+import com.nthlink.android.client.utils.NO_RESOURCE
 import com.nthlink.android.client.utils.getColor
+import com.nthlink.android.client.utils.getDb
 import com.nthlink.android.client.utils.installFromGooglePlay
 import com.nthlink.android.client.utils.removeAllCookies
 import com.nthlink.android.client.utils.requireRatingApp
+import com.nthlink.android.client.utils.showMaterialAlertDialog
 import com.nthlink.android.client.utils.vibrate
-import com.nthlink.android.core.RootVpn
-import com.nthlink.android.core.RootVpn.Status
-import kotlinx.coroutines.Dispatchers
+import com.nthlink.android.core.Root
+import com.nthlink.android.core.Root.Error
+import com.nthlink.android.core.Root.Status
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import tw.hankli.brookray.core.constant.NO_RESOURCE
+import kotlinx.coroutines.withContext
 
 class ConnectionFragment : Fragment(), MenuProvider {
     private var _binding: FragmentConnectionBinding? = null
     private val binding get() = _binding!!
 
-    private val mainViewModel: MainViewModel by activityViewModels()
     private val newsAdapter = NewsAdapter()
 
     private var landingPage: MenuItem? = null
     private var hasLandingPageShown: Boolean = false
 
-    private lateinit var vpn: RootVpn
+    private lateinit var vpn: Root
+    private lateinit var newsAnalyzer: NewsAnalyzer
     private lateinit var switch: SwitchBottomSheet
+
+    private var vpnFlowsJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        vpn = RootVpn.Builder()
-            .setNotificationIcon(R.drawable.ic_nthlink_logo_white)
-            .build(this)
+        vpn = Root.Builder().build(this)
+
+        newsAnalyzer = NewsAnalyzer(getDb().clickedNewsDao(), lifecycleScope)
 
         // restore hasLandingPageShown
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(IO) {
             hasLandingPageShown = readHasLandingPageShown(requireContext())
         }
     }
@@ -70,16 +76,15 @@ class ConnectionFragment : Fragment(), MenuProvider {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentConnectionBinding.inflate(inflater, container, false)
-        switch = SwitchBottomSheet(binding.switchBottomSheet, ::onBottomSheetExpanded)
+        switch = SwitchBottomSheet(binding.switchBottomSheet)
         return binding.root
     }
 
-    private fun onBottomSheetExpanded() {
-        if (vpn.status == Status.CONNECTED && binding.newsList.isVisible) loadNews()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.switchBottomSheet.dragHandle.setOnClickListener { switch.toggle() }
+        binding.switchBottomSheet.dragHandle.setOnClickListener {
+            if (vpn.status == Status.CONNECTED) switch.toggle()
+        }
+
         binding.switchBottomSheet.toggle.setOnClickListener {
             vpn.toggle()
             vibrate()
@@ -95,15 +100,14 @@ class ConnectionFragment : Fragment(), MenuProvider {
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner)
 
-        lifecycleScope.launch {
-            mainViewModel.toHomeFlow.collect {
-                if (vpn.status == Status.CONNECTED) switch.collapse() else switch.expand()
+        vpnFlowsJob = lifecycleScope.launch {
+            launch {
+                vpn.statusFlow.collect { updateUI(it) }
             }
-        }
 
-        with(vpn) {
-            onStatusChanged = { updateUI(it) }
-            onErrorOccurred = { showError(it) }
+            launch {
+                vpn.errorFlow.collect { showError(it) }
+            }
         }
     }
 
@@ -123,9 +127,14 @@ class ConnectionFragment : Fragment(), MenuProvider {
             // landing page icon
             landingPage?.isVisible = status == Status.CONNECTED
 
+            // switch draggable
+            switch.isDraggable = status == Status.CONNECTED
+
             when (status) {
                 Status.DISCONNECTED -> {
                     Log.i(TAG, "updateConnectionUI: DISCONNECTED")
+
+                    staticIndicator.isVisible = false
 
                     with(switchBottomSheet.toggle) {
                         isEnabled = true
@@ -139,8 +148,23 @@ class ConnectionFragment : Fragment(), MenuProvider {
                     inAppReviews()
                 }
 
+                Status.INITIALIZING -> {
+                    Log.i(TAG, "updateConnectionUI: INITIALIZING")
+
+                    staticIndicator.isVisible = false
+
+                    with(switchBottomSheet.toggle) {
+                        isEnabled = false
+                        setText(R.string.connection_server_state_initializing)
+                        setTextColor(getColor(R.color.grey_C4C4C4))
+                        strokeColor = ColorStateList.valueOf(getColor(R.color.grey_C4C4C4))
+                    }
+                }
+
                 Status.CONNECTING -> {
                     Log.i(TAG, "updateConnectionUI: CONNECTING")
+
+                    staticIndicator.isVisible = false
 
                     with(switchBottomSheet.toggle) {
                         isEnabled = false
@@ -164,18 +188,17 @@ class ConnectionFragment : Fragment(), MenuProvider {
 
                     switch.collapse()
 
-                    if (hasLandingPageShown) {
-                        loadNews()
-                    } else {
-                        hasLandingPageShown = true
-                        launchLeadingPage()
-                    }
+                    if (hasLandingPageShown) loadConfig() else launchLeadingPage()
 
-                    lifecycleScope.launch { saveConnectedCount(this@ConnectionFragment.requireContext()) }
+                    lifecycleScope.launch {
+                        saveConnectedCount(this@ConnectionFragment.requireContext())
+                    }
                 }
 
                 Status.DISCONNECTING -> {
                     Log.i(TAG, "updateConnectionUI: DISCONNECTING")
+
+                    staticIndicator.isVisible = false
 
                     with(switchBottomSheet.toggle) {
                         isEnabled = false
@@ -185,57 +208,62 @@ class ConnectionFragment : Fragment(), MenuProvider {
                     }
 
                     newsAdapter.submitList(null)
+                    newsAnalyzer.removeExpiredClickedNews()
                 }
             }
         }
     }
 
-    private fun showError(error: RootVpn.Error) {
+    private fun showError(error: Error) {
         val resource = when (error) {
-            RootVpn.Error.NO_ERROR -> NO_RESOURCE
-            RootVpn.Error.NO_PERMISSION -> R.string.error_no_permission
-            RootVpn.Error.NO_INTERNET -> R.string.error_no_internet
-            RootVpn.Error.DIRECTORY_SERVER_ERROR -> R.string.error_directory_server
-            RootVpn.Error.VPN_SERVICE_ERROR -> R.string.error_vpn_service
+            Error.NO_PERMISSION -> R.string.error_no_permission
+            Error.NO_INTERNET -> R.string.error_no_internet
+            Error.INVALID_CONFIG -> R.string.error_invalid_config
+            Error.GET_CONFIG_ERROR -> R.string.error_directory_server
+            Error.NO_PROXY_AVAILABLE -> R.string.error_no_proxy_available
+            Error.VPN_SERVICE_NOT_EXISTS, Error.CREATE_TUN_FAILED -> R.string.error_vpn_service
         }
 
         if (resource == NO_RESOURCE) return
 
-        AlertDialog.Builder(requireContext())
-            .setCancelable(false)
-            .setTitle(R.string.error_title)
-            .setMessage(resource)
-            .setPositiveButton(R.string.ok) { dialog, _ ->
+        showMaterialAlertDialog {
+            setTitle(R.string.error_title)
+            setMessage(resource)
+            setCancelable(false)
+            setPositiveButton(R.string.ok) { dialog, _ -> dialog.dismiss() }
+            setNegativeButton(R.string.feedback_page_title) { dialog, _ ->
+                findNavController().navigate(R.id.feedbackFragment)
                 dialog.dismiss()
             }
-            .setNegativeButton(R.string.feedback_page_title) { dialog, _ ->
-                findNavController().navigate(ConnectionFragmentDirections.actionConnectionFragmentToFeedbackFragment())
-                dialog.dismiss()
-            }
-            .show()
+        }
     }
 
-    private fun loadNews() = vpn.dsConfig?.run {
-        val notifications = notifications?.map {
-            NewsModel.Notification(it.title, it.url)
-        } ?: emptyList()
+    private fun loadConfig() {
+        lifecycleScope.launch(IO) {
+            val config = vpn.getConfig()
 
-        val headlines = headlineNews.map {
-            NewsModel.Headline(it.title, it.excerpt, it.image, it.url)
+            // news
+            newsAnalyzer.loadNews(config)
+
+            // update UI
+            withContext(Main) {
+                binding.staticIndicator.isVisible = config.static
+
+                removeAllCookies {
+                    newsAdapter.submitList(newsAnalyzer.getRecommendedNews())
+                }
+            }
         }
-
-        val news = ArrayList<NewsModel>().apply {
-            addAll(notifications)
-            addAll(headlines)
-        }
-
-        removeAllCookies { newsAdapter.submitList(news) }
     }
 
     private fun onNewsItemClick(item: NewsModel) {
-        openWebFragment(item.getNewsUrl())
+        if (item is NewsModel.HeadlineNews) {
+            newsAnalyzer.addClickedNews(item.categories)
+        }
+        openWebFragment(item.url)
     }
 
+    // rate app
     private fun inAppReviews() {
         if (!installFromGooglePlay(requireContext())) return
 
@@ -246,9 +274,14 @@ class ConnectionFragment : Fragment(), MenuProvider {
         }
     }
 
-    private fun launchLeadingPage(): Boolean {
-        vpn.dsConfig?.redirectUrl?.let { openWebFragment(it) }
-        return true
+    private fun launchLeadingPage() {
+        lifecycleScope.launch {
+            val url = vpn.getConfig().redirectUrl
+            if (url.isNotEmpty()) {
+                hasLandingPageShown = true
+                openWebFragment(url)
+            }
+        }
     }
 
     private fun openWebFragment(url: String) {
@@ -281,16 +314,14 @@ class ConnectionFragment : Fragment(), MenuProvider {
     override fun onStop() {
         super.onStop()
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            saveHasLandingPageShown(
-                requireContext(),
-                hasLandingPageShown
-            )
-        }
+        lifecycleScope.launch(IO) { saveHasLandingPageShown(requireContext(), hasLandingPageShown) }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+        vpnFlowsJob?.cancel()
+        vpnFlowsJob = null
 
         switch.onDestroyView()
         _binding = null

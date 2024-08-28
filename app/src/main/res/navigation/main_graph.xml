@@ -10,15 +10,8 @@
         android:name="com.nthlink.android.client.ui.connection.ConnectionFragment"
         tools:layout="@layout/fragment_connection">
         <action
-            android:id="@+id/action_connectionFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
-        <action
-            android:id="@+id/action_connectionFragment_to_feedbackFragment"
-            app:destination="@id/feedbackFragment" />
-        <action
             android:id="@+id/action_connectionFragment_to_webFragment"
             app:destination="@id/webFragment" />
-
     </fragment>
 
     <fragment
@@ -42,6 +35,12 @@
             android:name="url"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/followUsFragment"
+        android:name="com.nthlink.android.client.ui.follow.FollowUsFragment"
+        android:label="@string/follow_us"
+        tools:layout="@layout/fragment_follow_us" />
 
 </navigation>
 

@@ -2,23 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/drawer_menu_item_1"
+        android:id="@+id/menu_item_home"
         android:title="@string/menu_drawer_item_1" />
 
     <item
-        android:id="@+id/drawer_menu_item_3"
+        android:id="@+id/menu_item_about"
         android:title="@string/menu_drawer_item_3" />
 
     <item
-        android:id="@+id/drawer_menu_item_4"
+        android:id="@+id/menu_item_follow_us"
+        android:title="@string/follow_us" />
+
+    <item
+        android:id="@+id/menu_item_help"
         android:title="@string/menu_drawer_item_4" />
 
     <item
-        android:id="@+id/drawer_menu_item_2"
+        android:id="@+id/menu_item_feedback"
         android:title="@string/menu_drawer_item_2" />
 
     <item
-        android:id="@+id/drawer_menu_item_5"
+        android:id="@+id/menu_item_privacy_police"
+        android:title="@string/privacy_policy" />
+
+    <item
+        android:id="@+id/menu_item_download"
+        android:title="@string/download" />
+
+    <item
+        android:id="@+id/menu_item_update"
+        android:title="@string/update" />
+
+    <item
+        android:id="@+id/menu_item_rate_app"
         android:title="@string/menu_drawer_item_5" />
 
 </menu>

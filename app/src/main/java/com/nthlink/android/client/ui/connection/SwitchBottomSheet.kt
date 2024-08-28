@@ -8,15 +8,19 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDE
 import com.nthlink.android.client.databinding.BottomSheetSwitchBinding
 
 
-class SwitchBottomSheet(
-    private var _binding: BottomSheetSwitchBinding? = null,
-    private var onExpanded: (() -> Unit)? = null
-) : BottomSheetCallback() {
+class SwitchBottomSheet(private var _binding: BottomSheetSwitchBinding?) : BottomSheetCallback() {
     private val binding get() = _binding!!
 
     private val behavior = BottomSheetBehavior.from(binding.root).apply {
         addBottomSheetCallback(this@SwitchBottomSheet)
     }
+
+    var isDraggable: Boolean
+        set(value) {
+            behavior.isDraggable = value
+        }
+        get() = behavior.isDraggable
+
 
     init {
         binding.dragHandle.post {
@@ -24,9 +28,7 @@ class SwitchBottomSheet(
         }
     }
 
-    override fun onStateChanged(bottomSheet: View, newState: Int) {
-        if (newState == STATE_EXPANDED) onExpanded?.invoke()
-    }
+    override fun onStateChanged(bottomSheet: View, newState: Int) {}
 
     override fun onSlide(bottomSheet: View, slideOffset: Float) {}
 
@@ -43,7 +45,6 @@ class SwitchBottomSheet(
     }
 
     fun onDestroyView() {
-        onExpanded = null
         behavior.removeBottomSheetCallback(this)
     }
 }

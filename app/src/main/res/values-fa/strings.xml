@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">حریم خصوصی شما حرف اول را می زند</string>
 
     <string name="privacy_notice_text">nthLink اطلاعات شناسایی شخصی یا وب سایت ها / خدمات آنلاینی را که بازدید می کنید جمع آوری نمی کند. nthLink از آدرس IP شما، زبان پیش‌فرض دستگاه، کوکی‌ها و اطلاعات اولیه دستگاه (به عنوان مثال اطلاعات سیستم عامل) برای سفارشی‌سازی سرویس‌هایی که دریافت می‌کنید، مانند مکان‌یابی نزدیک‌ترین سرورهایی که می‌توانند به بهترین شکل از دستگاه شما پشتیبانی کنند و نمایش صفحه وب مناسب هنگام اتصال به سرور nthLink استفاده می‌کند. </string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">متصل</string>
 
+    <string name="connection_server_state_initializing">در حال راه اندازی…</string>
+
     <string name="connection_server_state_connecting">برقراری ارتباط…</string>
 
     <string name="connection_server_state_disconnecting">در حال قطع شدن…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">بازخورد</string>
 
     <string name="feedback_issue_category_title">دسته بندی موضوع</string>
-
 
     <string name="feedback_description_title">شرح</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">بارگذاری</string>
 
-    <string name="word_coped_link">لینک کپی شده</string>
+    <string name="word_copied_link">لینک کپی شده</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/fa/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/fa/policies/</string>
+
+    <string name="download">دانلود</string>
+
+    <string name="copied">کپی شد</string>
+
+    <string name="copied_telegram_id">لطفاً شناسه را در تلگرام جای‌گذاری کنید.</string>
+
+    <string name="update">به روز رسانی</string>
+    <string name="update_is_up_to_date">برنامه شما به روز است</string>
+    <string name="update_canceled">به‌روزرسانی لغو شد</string>
+    <string name="update_has_new_apk">نسخه جدیدی از nthlink وجود دارد. آیا می‌خواهید دانلود کنید؟</string>
+
+    <string name="something_went_wrong">مشکلی پیش آمده است. لطفاً دوباره امتحان کنید.</string>
+
+    <string name="follow_us">ما را دنبال کنید</string>
+    <string name="visit">بازدید</string>
 </resources>

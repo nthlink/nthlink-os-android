@@ -1,11 +1,9 @@
-package com.nthlink.android.client.storage
+package com.nthlink.android.client.storage.datastore
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
-import com.nthlink.android.core.storage.read
-import com.nthlink.android.core.storage.save
-import tw.hankli.brookray.core.constant.ZERO
+import com.nthlink.android.client.utils.ZERO
 
 // Keys
 private val keyAgreePrivacy = booleanPreferencesKey("agreePrivacy")
@@ -14,26 +12,26 @@ private val keyHasLandingPageShown = booleanPreferencesKey("hasLandingPageShown"
 
 // Preferences DataStore
 internal suspend fun saveAgreePrivacy(context: Context, agreePrivacy: Boolean) {
-    save(context, keyAgreePrivacy, agreePrivacy)
+    context.prefs.save(keyAgreePrivacy, agreePrivacy)
 }
 
 internal suspend fun readAgreePrivacy(context: Context): Boolean {
-    return read(context, keyAgreePrivacy) ?: false
+    return context.prefs.read(keyAgreePrivacy) ?: false
 }
 
 internal suspend fun saveConnectedCount(context: Context) {
     val count = readConnectedCount(context)
-    save(context, keyConnectedCount, count + 1)
+    context.prefs.save(keyConnectedCount, count + 1)
 }
 
 internal suspend fun readConnectedCount(context: Context): Int {
-    return read(context, keyConnectedCount) ?: ZERO
+    return context.prefs.read(keyConnectedCount) ?: ZERO
 }
 
 internal suspend fun saveHasLandingPageShown(context: Context, hasShown: Boolean) {
-    save(context, keyHasLandingPageShown, hasShown)
+    context.prefs.save(keyHasLandingPageShown, hasShown)
 }
 
 internal suspend fun readHasLandingPageShown(context: Context): Boolean {
-    return read(context, keyHasLandingPageShown) ?: false
+    return context.prefs.read(keyHasLandingPageShown) ?: false
 }

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.nthlink.android.client.databinding.FragmentLaunchBinding
-import com.nthlink.android.client.storage.readAgreePrivacy
+import com.nthlink.android.client.storage.datastore.readAgreePrivacy
 import com.nthlink.android.client.ui.LaunchActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

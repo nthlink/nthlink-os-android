@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Privasi anda diutamakan</string>
 
     <string name="privacy_notice_text">nthLink TIDAK mengumpul maklumat peribadi atau laman web / perkhidmatan dalam talian yang anda lawati. nthLink menggunakan alamat IP anda, bahasa lalai peranti, kuki dan maklumat asas peranti ( cth. maklumat sistem pengendalian ) untuk menyesuaikan perkhidmatan yang anda terima seperti mencari pelayan terdekat yang paling bagus menyokong peranti anda dan memaparkan laman web yang betul semasa menyambung pelayan nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Bersambung</string>
 
+    <string name="connection_server_state_initializing">Memulakan…</string>
+
     <string name="connection_server_state_connecting">Menyambung…</string>
 
     <string name="connection_server_state_disconnecting">Memutuskan sambungan…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Maklum balas</string>
 
     <string name="feedback_issue_category_title">Kategori isu</string>
-
 
     <string name="feedback_description_title">Penerangan</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Memuatkan</string>
 
-    <string name="word_coped_link">Pautan yang disalin</string>
+    <string name="word_copied_link">Pautan yang disalin</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Lain-lain</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Muat turun</string>
+
+    <string name="copied">Disalin</string>
+
+    <string name="copied_telegram_id">Sila tampal ID di Telegram.</string>
+
+    <string name="update">Kemas kini</string>
+    <string name="update_is_up_to_date">Aplkasi anda adalah terkini</string>
+    <string name="update_canceled">Kemas kini telah dibatalkan</string>
+    <string name="update_has_new_apk">Terdapat versi baru nthlink. Adakah anda ingin memuat turun?</string>
+
+    <string name="something_went_wrong">Ada yang tidak kena. Sila cuba lagi.</string>
+
+    <string name="follow_us">Ikuti kami</string>
+    <string name="visit">Lawat</string>
 </resources>

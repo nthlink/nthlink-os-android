@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Ваша конфіденційність на першому місці</string>
 
     <string name="privacy_notice_text">nthLink НЕ збирає персональну інформацію або дані про веб-сайти/онлайн-сервіси, які ви відвідуєте. nthLink використовує вашу IP-адресу, мову пристрою за замовчуванням, файли cookie та основну інформацію про пристрій (наприклад, інформацію про операційну систему), щоб налаштувати послуги, які ви отримуєте, наприклад, місцезнаходження найближчих серверів, які найкраще підтримують ваш пристрій, і відображення належної веб-сторінки після підключення до серверу nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Підключено</string>
 
+    <string name="connection_server_state_initializing">Ініціалізація…</string>
+
     <string name="connection_server_state_connecting">Підключення…</string>
 
     <string name="connection_server_state_disconnecting">Відключення…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Відгук</string>
 
     <string name="feedback_issue_category_title">Категорія проблеми</string>
-
 
     <string name="feedback_description_title">Опис</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Завантаження</string>
 
-    <string name="word_coped_link">Посилання скопійовано</string>
+    <string name="word_copied_link">Посилання скопійовано</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Інше</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Завантажити</string>
+
+    <string name="copied">Скопійовано</string>
+
+    <string name="copied_telegram_id">Будь ласка, вставте ID у Telegram.</string>
+
+    <string name="update">Оновити</string>
+    <string name="update_is_up_to_date">Ваш додаток оновлено</string>
+    <string name="update_canceled">Оновлення скасовано</string>
+    <string name="update_has_new_apk">Є нова версія nthlink. Хочете завантажити?</string>
+
+    <string name="something_went_wrong">Щось пішло не так. Будь ласка, спробуйте ще раз.</string>
+
+    <string name="follow_us">Слідуйте за нами</string>
+    <string name="visit">Відвідування</string>
 </resources>

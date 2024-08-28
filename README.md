@@ -11,7 +11,7 @@ More details about [Outline](https://getoutline.org/).
 
 You can globally search `TODO` in the project to find the places where you need to implement.
 
-### Using the existing protocols
+### The functions need to be implemented
 
 Open `Core.kt` in the `core` module, there are couple of functions you have to implement.
 
@@ -31,47 +31,16 @@ Open `Core.kt` in the `core` module, there are couple of functions you have to i
 
 > Send users' feedback
 
-### `getConfig()`
+Open `RootVpnClient.kt` in the `core` module, there are couple of functions you have to implement.
 
-This is the key function that makes the VPN app work. Example JSON below:
+- `fun runVpn(servers: List<Config.Server>)`
 
-```json
-{
-  "servers": [
-    {
-      "protocol": "outline",
-      "host": "1.2.3.4",
-      "port": 443,
-      "password": "password",
-      "encrypt_method": "encrypt method",
-      "sni": "www.domain.com",
-      "ws": false,
-      "ws_path": "/path"
-    }
-  ],
-  "redirectUrl": "https://www.nthlink.com/",
-  "headlineNews": [
-    {
-      "title": "title",
-      "excerpt": "",
-      "image": "",
-      "url": "url"
-    }
-  ],
-  "notifications": [
-    {
-      "title": "title",
-      "url": "url"
-    }
-  ]
-}
-```
+> Start VPN connection with the `Config` class.
 
-### Using your own protocols
+- `fun runVpn(config: String)`
 
-If you want to use other protocols, you need to do:
+> Start VPN connection with string.
 
-1. Modify the JSON object in `servers` in `Core.kt`
-2. Modify the `Server` class in `DsConfig.kt`
-3. Insert a new subclass of `proxy` in `RootProxy.kt`
-4. Add a new branch of `when` in `Util.kt`.
+- `fun disconnect()`
+
+> Stop VPN connection

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">आपकी गोपनीयता सबसे पहले आती है</string>
 
     <string name="privacy_notice_text">nthLink व्यक्तिगत रूप से पहचान योग्य जानकारी या आपके द्वारा देखी जाने वाली वेबसाइटों / ऑनलाइन सेवाओं को एकत्र नहीं करता है. nthLink आपके द्वारा प्राप्त की जाने वाली सेवाओं को अनुकूलित करने के लिए आपके IP पते, डिवाइस की डिफ़ॉल्ट भाषा, कुकीज़ और बुनियादी डिवाइस जानकारी ( जैसे ऑपरेटिंग सिस्टम की जानकारी) का उपयोग करता है जैसे कि निकटतम सर्वर का पता लगाना जो आपके डिवाइस का सबसे अच्छा समर्थन कर सकते हैं और nthLink सर्वर से कनेक्ट होने पर उचित वेब पेज प्रदर्शित कर सकते हैं.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">कनेक्ट किया गया</string>
 
+    <string name="connection_server_state_initializing">प्रारंभ कर रहा है…</string>
+
     <string name="connection_server_state_connecting">कनेक्ट हो रहा है…</string>
 
     <string name="connection_server_state_disconnecting">डिस्कनेक्ट हो रहा है…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">फीडबैक</string>
 
     <string name="feedback_issue_category_title">इशू श्रेणी</string>
-
 
     <string name="feedback_description_title">विवरण</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">लोड हो रहा है</string>
 
-    <string name="word_coped_link">कॉपी किया गया लिंक</string>
+    <string name="word_copied_link">कॉपी किया गया लिंक</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">डाउनलोड</string>
+
+    <string name="copied">कॉपी किया गया</string>
+
+    <string name="copied_telegram_id">कृपया टेलीग्राम पर आईडी पेस्ट करें।</string>
+
+    <string name="update">अपडेट करें</string>
+    <string name="update_is_up_to_date">आपका ऐप अप-टू-डेट है</string>
+    <string name="update_canceled">अपडेट रद्द कर दिया गया है</string>
+    <string name="update_has_new_apk">nthlink का एक नया संस्करण है। क्या आप डाउनलोड करना चाहेंगे?</string>
+
+    <string name="something_went_wrong">कुछ गलत हो गया। कृपया पुन: प्रयास करें।</string>
+
+    <string name="follow_us">हमें फॉलो करें</string>
+    <string name="visit">यात्रा करें</string>
 </resources>

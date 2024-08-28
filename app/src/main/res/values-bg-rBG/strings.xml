@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Вашата поверителност е на първо място</string>
 
     <string name="privacy_notice_text">nthLink НЕ събира лична информация или уебсайтове / онлайн услуги, които посещавате. nthLink използва вашия IP адрес, езика по подразбиране на устройството, бисквитки и основна информация за устройството ( напр. информация за операционната система), за да персонализира услугите, които получавате, като например намиране на най-близките сървъри, които могат най-добре да поддържат вашето устройство, и показване на правилната уеб страница при свързване към сървъра nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Свързани</string>
 
+    <string name="connection_server_state_initializing">Инициализиране…</string>
+
     <string name="connection_server_state_connecting">Свързва се…</string>
 
     <string name="connection_server_state_disconnecting">Прекъсване на връзката…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Обратна връзка</string>
 
     <string name="feedback_issue_category_title">Категория на проблема</string>
-
 
     <string name="feedback_description_title">Описание</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Зареждане</string>
 
-    <string name="word_coped_link">Справена връзка</string>
+    <string name="word_copied_link">Справена връзка</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Изтегляне</string>
+
+    <string name="copied">Копирано</string>
+
+    <string name="copied_telegram_id">Моля, поставете ID в Telegram.</string>
+
+    <string name="update">Актуализиране</string>
+    <string name="update_is_up_to_date">Вашето приложение е актуално</string>
+    <string name="update_canceled">Актуализацията е отменена</string>
+    <string name="update_has_new_apk">Има нова версия на nthlink. Искате ли да изтеглите?</string>
+
+    <string name="something_went_wrong">Нещо се обърка. Моля, опитайте отново.</string>
+
+    <string name="follow_us">Следвайте ни</string>
+    <string name="visit">Посетете</string>
 </resources>

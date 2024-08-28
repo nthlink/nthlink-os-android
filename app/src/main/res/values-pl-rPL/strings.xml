@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Twoja prywatność jest najważniejsza</string>
 
     <string name="privacy_notice_text">nthLink NIE ZBIERA danych umożliwiających identyfikację osób ani odwiedzanych witryn / usług internetowych. nthLink wykorzystuje Twój adres IP, domyślny język urządzenia, pliki cookie i podstawowe informacje o urządzeniu ( np. informacje o systemie operacyjnym) w celu dostosowania otrzymywanych usług, takich jak lokalizowanie najbliższych serwerów, które najlepiej obsługują Twoje urządzenie i wyświetlanie odpowiedniej strony internetowej po połączeniu się z serwerem nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Połączony</string>
 
+    <string name="connection_server_state_initializing">Inicjalizacja…</string>
+
     <string name="connection_server_state_connecting">Łączenie…</string>
 
     <string name="connection_server_state_disconnecting">Rozłączanie…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Odpowiedź zwrotna</string>
 
     <string name="feedback_issue_category_title">Kategoria problemu</string>
-
 
     <string name="feedback_description_title">Opis</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Ładowanie</string>
 
-    <string name="word_coped_link">Skorygowany link</string>
+    <string name="word_copied_link">Skorygowany link</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Inny</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Pobierz</string>
+
+    <string name="copied">Skopiowano</string>
+
+    <string name="copied_telegram_id">Proszę wkleić identyfikator w Telegram.</string>
+
+    <string name="update">Aktualizuj</string>
+    <string name="update_is_up_to_date">Twoja aplikacja jest aktualna</string>
+    <string name="update_canceled">Aktualizacja została anulowana</string>
+    <string name="update_has_new_apk">Jest nowa wersja nthlink. Czy chcesz pobrać?</string>
+
+    <string name="something_went_wrong">Coś poszło nie tak. Proszę spróbuj ponownie.</string>
+
+    <string name="follow_us">Śledź nas</string>
+    <string name="visit">Odwiedź</string>
 </resources>

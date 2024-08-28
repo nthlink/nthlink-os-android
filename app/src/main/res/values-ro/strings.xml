@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Intimitatea ta este pe primul loc</string>
 
     <string name="privacy_notice_text">nthLink NU colectează informații de identificare personală sau site-uri web / servicii online pe care le vizitați. nthLink folosește adresa dvs. IP, limba implicită a dispozitivului, cookie-urile și informațiile de bază ale dispozitivului ( de exemplu, informații despre sistemul de operare) pentru a personaliza serviciile pe care le primiți, cum ar fi localizarea celor mai apropiate servere care vă pot sprijini cel mai bine dispozitivul și afișarea paginii web adecvate la conectarea la serverul nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Conectat</string>
 
+    <string name="connection_server_state_initializing">Inițializare…</string>
+
     <string name="connection_server_state_connecting">Se conectează…</string>
 
     <string name="connection_server_state_disconnecting">Se deconectează…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Părere</string>
 
     <string name="feedback_issue_category_title">Categoria problemei</string>
-
 
     <string name="feedback_description_title">Descriere</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Se încarcă</string>
 
-    <string name="word_coped_link">Link copiat</string>
+    <string name="word_copied_link">Link copiat</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Alte</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Descărcați</string>
+
+    <string name="copied">Copiat</string>
+
+    <string name="copied_telegram_id">Vă rugăm să inserați ID-ul pe Telegram.</string>
+
+    <string name="update">Actualizați</string>
+    <string name="update_is_up_to_date">Aplicația dvs. este actualizată</string>
+    <string name="update_canceled">Actualizarea a fost anulată</string>
+    <string name="update_has_new_apk">Există o nouă versiune a nthlink. Doriți să descărcați?</string>
+
+    <string name="something_went_wrong">Ceva a mers prost. Vă rugăm să încercați din nou.</string>
+
+    <string name="follow_us">Urmați-ne</string>
+    <string name="visit">Vizitați</string>
 </resources>

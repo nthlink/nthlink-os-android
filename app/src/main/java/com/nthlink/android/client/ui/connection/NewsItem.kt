@@ -5,36 +5,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nthlink.android.client.R
-import com.nthlink.android.client.databinding.ViewHolderHeadlineBinding
+import com.nthlink.android.client.databinding.ViewHolderNewsTitleBinding
 import com.nthlink.android.client.databinding.ViewHolderNotificationBinding
 
 /**
  * Model
  */
-sealed interface NewsModel {
+sealed class NewsModel(val viewType: Int, val title: String, val url: String) {
 
-    fun getViewType(): Int
-
-    fun getNewsTitle(): String
-
-    fun getNewsUrl(): String
-
-    data class Notification(val title: String, val url: String) : NewsModel {
-        override fun getViewType(): Int = R.layout.view_holder_notification
-        override fun getNewsTitle(): String = title
-        override fun getNewsUrl(): String = url
+    companion object {
+        const val NOTIFICATION = 0
+        const val NEWS_TITLE = 1
     }
 
-    data class Headline(
-        val title: String,
+    class Notification(title: String, url: String) : NewsModel(NOTIFICATION, title, url)
+
+    class HeadlineNews(
+        viewType: Int,
+        title: String,
         val excerpt: String,
         val image: String,
-        val url: String
-    ) : NewsModel {
-        override fun getViewType(): Int = R.layout.view_holder_headline
-        override fun getNewsTitle(): String = title
-        override fun getNewsUrl(): String = url
-    }
+        url: String,
+        val categories: List<String>
+    ) : NewsModel(viewType, title, url)
 }
 
 /**
@@ -56,14 +49,11 @@ sealed class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
             onNewsItemClick: ((NewsModel) -> Unit)?
         ) {
             itemView.setOnClickListener { onNewsItemClick?.invoke(item) }
-
-            if (item is NewsModel.Notification) {
-                binding.title.text = item.title
-            }
+            binding.title.text = item.title
         }
     }
 
-    class Headline(private val binding: ViewHolderHeadlineBinding) :
+    class NewsTitle(private val binding: ViewHolderNewsTitleBinding) :
         NewsViewHolder(binding.root) {
         override fun <T : NewsModel> bind(
             item: T,
@@ -72,29 +62,28 @@ sealed class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         ) {
             itemView.setOnClickListener { onNewsItemClick?.invoke(item) }
 
-            if (item is NewsModel.Headline) {
-                with(binding) {
-                    val color = if (position % 2 == 0) R.color.white else R.color.eggshell_white_2
-                    binding.root.setBackgroundResource(color)
-                    title.text = item.title
-                    subtitle.text = item.excerpt
-                }
+            with(binding) {
+                val color = if (position % 2 == 0) R.color.white else R.color.eggshell_white_2
+                binding.root.setBackgroundResource(color)
+                title.text = item.title
+                subtitle.text = (item as NewsModel.HeadlineNews).excerpt
             }
         }
     }
 }
 
 fun getNewsViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-    val layoutInflater = LayoutInflater.from(parent.context)
-    val view = layoutInflater.inflate(viewType, parent, false)
+    val inflater = LayoutInflater.from(parent.context)
 
     return when (viewType) {
-        R.layout.view_holder_notification -> {
-            NewsViewHolder.Notification(ViewHolderNotificationBinding.bind(view))
+        NewsModel.NOTIFICATION -> {
+            val binding = ViewHolderNotificationBinding.inflate(inflater, parent, false)
+            NewsViewHolder.Notification(binding)
         }
 
-        R.layout.view_holder_headline -> {
-            NewsViewHolder.Headline(ViewHolderHeadlineBinding.bind(view))
+        NewsModel.NEWS_TITLE -> {
+            val binding = ViewHolderNewsTitleBinding.inflate(inflater, parent, false)
+            NewsViewHolder.NewsTitle(binding)
         }
 
         else -> throw IllegalArgumentException("Unknown view type!")

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Ваша приватност је на првом месту</string>
 
     <string name="privacy_notice_text">nthLink НЕ прикупља личне информације или веб локације / онлајн услуге које посећујете. nthLink користи вашу IP адресу, подразумевани језик уређаја, колачиће и основне информације о уређају ( нпр. информације о оперативном систему) да би прилагодио услуге које добијате, као што је лоцирање најближих сервера који могу најбоље да подрже ваш уређај и приказивање одговарајуће веб странице након повезивања на nthLink сервер.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Повезано</string>
 
+    <string name="connection_server_state_initializing">Инициализација…</string>
+
     <string name="connection_server_state_connecting">Повезивање…</string>
 
     <string name="connection_server_state_disconnecting">Прекидање везе…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Повратна информација</string>
 
     <string name="feedback_issue_category_title">Категорија издања</string>
-
 
     <string name="feedback_description_title">Опис</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Учитавање</string>
 
-    <string name="word_coped_link">Покривен линк</string>
+    <string name="word_copied_link">Покривен линк</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Остало</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Преузимање</string>
+
+    <string name="copied">Копирано</string>
+
+    <string name="copied_telegram_id">Молимо вас да налепите ИД на Телеграм.</string>
+
+    <string name="update">Ажурирај</string>
+    <string name="update_is_up_to_date">Ваша апликација је ажурирана</string>
+    <string name="update_canceled">Ажурирање је отказано</string>
+    <string name="update_has_new_apk">Постоји нова верзија nthlink-а. Да ли желите да преузмете?</string>
+
+    <string name="something_went_wrong">Нешто је пошло наопако. Молимо вас, покушајте поново.</string>
+
+    <string name="follow_us">Запратите нас</string>
+    <string name="visit">Посетите</string>
 </resources>

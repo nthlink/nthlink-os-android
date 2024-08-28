@@ -3,6 +3,7 @@
     <string name="app_name" translatable="false">nthLink</string>
     <string name="percentage" translatable="false">%d %%</string>
     <string name="ok" translatable="false">OK</string>
+    <string name="cancel" translatable="false">Cancel</string>
 
     <string name="privacy_notice_title">Your privacy comes first</string>
     <string name="privacy_notice_text">nthLink DOES NOT collect personally identifiable information or websites / online services that you visit. nthLink uses your IP address, device’s default language, cookies, and basic device information ( e.g. operating system information ) to customize the services that you receive such as locating the nearest servers that can best support your device and displaying the proper web page upon connecting to the nthLink server.</string>
@@ -13,6 +14,7 @@
     <string name="connection_label_connect">Connect</string>
     <string name="connection_label_disconnect">Disconnect</string>
     <string name="connection_server_state_connected">Connected</string>
+    <string name="connection_server_state_initializing">Initializing…</string>
     <string name="connection_server_state_connecting">Connecting…</string>
     <string name="connection_server_state_disconnecting">Disconnecting…</string>
 
@@ -43,7 +45,7 @@
     <string name="menu_connection_item_1">Landing Page</string>
 
     <string name="word_loading">Loading</string>
-    <string name="word_coped_link">Coped link</string>
+    <string name="word_copied_link">Copied link</string>
 
     <string-array name="issue_categories">
         <item>General feedback</item>
@@ -56,7 +58,9 @@
     <string name="error_title" translatable="false">Oops…</string>
     <string name="error_no_permission" translatable="false">We need permission to start VPN.</string>
     <string name="error_no_internet" translatable="false">Unstable network. Please check your internet connection.</string>
-    <string name="error_directory_server" translatable="false">We got problems with Directory Server. Please contact customer service.</string>
+    <string name="error_directory_server" translatable="false">We got problems with Directory Server. Please try it later or contact customer service.</string>
+    <string name="error_invalid_config" translatable="false">Invalid configuration. Please contact customer service.</string>
+    <string name="error_no_proxy_available" translatable="false">No VPN server is available for your region. Please contact customer service.</string>
     <string name="error_vpn_service" translatable="false">We got problems with VPN Service. Please contact customer service.</string>
 
     <string name="privacy_policy" translatable="false">Privacy Policy</string>
@@ -65,4 +69,43 @@
     <string name="terms_of_use" translatable="false">Terms of Use</string>
     <string name="terms_of_use_content" translatable="false">By accessing, downloading, or using nthLink, you are agreeing to the terms of services below. The Agreement is a binding contract between you and nthLink regarding your use of nthLink.\n\n<b>License.</b> nthLink is made available by nthLink under the Apache 2.0 license.\n<b>Assumption of Risk.</b> You may use nthLink and invite others to use nthLink only as permitted by law. We encourage you to check local laws and regulations before using nthLink.\n<b>Your content.</b> Content that you upload, submit, store, send or receive through nthLink Servers (“Your Content”) is not uploaded or submitted to nthLink. We do not know what you are sending with nthLink.\n<b>Copyright notices.</b> nthLink does not host or store any content that you access through nthLink Servers. Any notices of alleged copyright infringement or other legal notices relating to content hosted, stored, sent or received via nthLink Servers should be dealt with by you or directed to your Service Provider.</string>
     <string name="read_latest_news" translatable="false"><u>Read Latest News</u></string>
+
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Download</string>
+    <string name="url_download" translatable="false">https://www.downloadnth.com/download.html</string>
+
+    <string name="telegram_id_label" translatable="false">Telegram ID:</string>
+    <string name="telegram_id" translatable="false">\@nthLinkVPN</string>
+    <string name="copied">Copied</string>
+    <string name="copied_telegram_id">Please paste ID on Telegram.</string>
+
+    <string name="update">Update</string>
+    <string name="update_is_up_to_date">Your app is up to date.</string>
+    <string name="update_canceled">The update is canceled</string>
+    <string name="update_has_new_apk">There is a new version of nthlink. Would you like to download?</string>
+
+    <string name="something_went_wrong">Something went wrong. Please try it again.</string>
+
+    <string name="follow_us">Follow Us</string>
+    <string name="visit">Visit</string>
+
+    <string name="facebook" translatable="false">Facebook</string>
+    <string name="fb_en_label" translatable="false">English: nthLink VPN</string>
+    <string name="fb_zh_label" translatable="false">中文: CNnthLink</string>
+    <string name="fb_fa_label" translatable="false"> فارسی: NthLinkIR</string>
+    <string name="fb_ru_label" translatable="false">Русский: NthLinkRU</string>
+    <string name="fb_my_label" translatable="false"> မြန်မာ: NthLinkMM</string>
+    <string name="fb_es_label" translatable="false">Español: NthlinkES</string>
+
+    <string name="instagram" translatable="false">Instagram</string>
+    <string name="ig_en_label" translatable="false">English: nthlink_vpn</string>
+    <string name="ig_zh_label" translatable="false">中文: cn_nthlink</string>
+    <string name="ig_fa_label" translatable="false"> فارسی: ir_nthlink</string>
+    <string name="ig_ru_label" translatable="false">Русский: ru_nthlink</string>
+    <string name="ig_my_label" translatable="false"> မြန်မာ: mm_nthlink</string>
+    <string name="ig_es_label" translatable="false"> Español: es_nthlink</string>
+
+    <string name="youtube_id_label" translatable="false">Youtube: @nthLinkApp</string>
 </resources>

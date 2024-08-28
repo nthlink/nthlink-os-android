@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">La vostra privadesa és el primer</string>
 
     <string name="privacy_notice_text">nthLink NO recull informació d\'identificació personal o llocs web / serveis en línia que visiteu. nthLink utilitza la vostra adreça IP, l\'idioma predeterminat del dispositiu, les galetes i la informació bàsica del dispositiu ( per exemple, informació del sistema operatiu) per personalitzar els serveis que rebeu, com ara localitzar els servidors més propers que millor donen suport al vostre dispositiu i mostrar la pàgina web adequada en connectar-vos a el servidor nthLink.</string>
@@ -18,14 +16,15 @@
 
     <string name="connection_server_state_connected">Connectat</string>
 
+    <string name="connection_server_state_initializing">Inicialitzant…</string>
+
     <string name="connection_server_state_connecting">S\'està connectant…</string>
 
-    <string name="connection_server_state_disconnecting">S\'està desconnectant...</string>
+    <string name="connection_server_state_disconnecting">S\'està desconnectant…</string>
 
     <string name="feedback_page_title">Comentaris</string>
 
     <string name="feedback_issue_category_title">Categoria d\'error</string>
-
 
     <string name="feedback_description_title">Descripció</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Carregant</string>
 
-    <string name="word_coped_link">Enllaç copiat</string>
+    <string name="word_copied_link">Enllaç copiat</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Descarregar</string>
+
+    <string name="copied">Copiat</string>
+
+    <string name="copied_telegram_id">Si us plau, enganxeu l\'ID al Telegram.</string>
+
+    <string name="update">Actualitzar</string>
+    <string name="update_is_up_to_date">La teva aplicació està actualitzada</string>
+    <string name="update_canceled">L\'actualització ha estat cancel·lada</string>
+    <string name="update_has_new_apk">Hi ha una nova versió de nthlink. Voldries descarregar-la?</string>
+
+    <string name="something_went_wrong">Hi ha hagut un error. Si us plau, torna-ho a provar.</string>
+
+    <string name="follow_us">Segueix-nos</string>
+    <string name="visit">Visita</string>
 </resources>

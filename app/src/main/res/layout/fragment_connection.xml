@@ -36,6 +36,13 @@
             app:layout_constraintStart_toStartOf="@+id/logo"
             app:layout_constraintTop_toBottomOf="@+id/logo" />
 
+        <View
+            android:id="@+id/static_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/distance_3_dp"
+            android:background="@color/grey_static"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/news_list"
             android:layout_width="@dimen/match_constraint"
@@ -44,7 +51,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/static_indicator" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

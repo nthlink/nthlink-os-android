@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Quyền riêng tư của bạn là trên hết</string>
 
     <string name="privacy_notice_text">nthLink KHÔNG thu thập thông tin nhận dạng cá nhân hoặc các trang web / dịch vụ trực tuyến mà bạn truy cập. nthLink sử dụng địa chỉ IP của bạn, ngôn ngữ mặc định của thiết bị, cookie và thông tin thiết bị cơ bản (ví dụ: thông tin hệ điều hành) để tùy chỉnh các dịch vụ mà bạn nhận được, chẳng hạn như định vị các máy chủ gần nhất có thể hỗ trợ tốt nhất cho thiết bị của bạn và hiển thị trang web thích hợp khi kết nối với máy chủ nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Đã kết nối</string>
 
+    <string name="connection_server_state_initializing">Đang khởi tạo…</string>
+
     <string name="connection_server_state_connecting">Đang kết nối…</string>
 
     <string name="connection_server_state_disconnecting">Đang ngắt kết nối…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Phản hồi</string>
 
     <string name="feedback_issue_category_title">Danh mục vấn đề</string>
-
 
     <string name="feedback_description_title">Mô tả</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Đang tải</string>
 
-    <string name="word_coped_link">Liên kết đã sao chép</string>
+    <string name="word_copied_link">Liên kết đã sao chép</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Khác</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Tải về</string>
+
+    <string name="copied">Đã sao chép</string>
+
+    <string name="copied_telegram_id">Vui lòng dán ID vào Telegram.</string>
+
+    <string name="update">Cập nhật</string>
+    <string name="update_is_up_to_date">Ứng dụng của bạn đã cập nhật</string>
+    <string name="update_canceled">Bản cập nhật đã bị hủy</string>
+    <string name="update_has_new_apk">Có phiên bản mới của nthlink. Bạn có muốn tải xuống không?</string>
+
+    <string name="something_went_wrong">Đã xảy ra lỗi. Vui lòng thử lại.</string>
+
+    <string name="follow_us">Theo dõi chúng tôi</string>
+    <string name="visit">Thăm</string>
 </resources>

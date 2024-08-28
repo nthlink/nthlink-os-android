@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/eggshell_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_24_dp"
+            android:layout_marginTop="@dimen/distance_24_dp"
+            android:layout_marginEnd="@dimen/distance_24_dp"
+            android:layout_marginBottom="@dimen/distance_8_dp"
+            android:drawablePadding="@dimen/distance_6_dp"
+            android:fontFamily="@font/work_sans_normal"
+            android:text="@string/facebook"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18_sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_fb" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_12_dp"
+            android:layout_marginEnd="@dimen/distance_12_dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/distance_24_dp"
+                android:paddingTop="@dimen/distance_12_dp"
+                android:paddingEnd="@dimen/distance_24_dp"
+                android:paddingBottom="@dimen/distance_12_dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/fb_en_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/fb_en_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/fb_zh_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/fb_zh_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:gravity="end"
+                        android:text="@string/fb_fa_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/fb_fa_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/fb_ru_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/fb_ru_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/fb_my_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/fb_my_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/fb_es_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/fb_es_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_24_dp"
+            android:layout_marginTop="@dimen/distance_24_dp"
+            android:layout_marginEnd="@dimen/distance_24_dp"
+            android:layout_marginBottom="@dimen/distance_8_dp"
+            android:drawablePadding="@dimen/distance_6_dp"
+            android:fontFamily="@font/work_sans_normal"
+            android:text="@string/instagram"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18_sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_ig" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_12_dp"
+            android:layout_marginEnd="@dimen/distance_12_dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/distance_24_dp"
+                android:paddingTop="@dimen/distance_12_dp"
+                android:paddingEnd="@dimen/distance_24_dp"
+                android:paddingBottom="@dimen/distance_12_dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/ig_en_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/ig_en_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/ig_zh_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/ig_zh_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:gravity="end"
+                        android:text="@string/ig_fa_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/ig_fa_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/ig_ru_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/ig_ru_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/ig_my_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/ig_my_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/distance_8_dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/ig_es_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp" />
+
+                    <Button
+                        android:id="@+id/ig_es_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_12_dp"
+            android:layout_marginTop="@dimen/distance_24_dp"
+            android:layout_marginEnd="@dimen/distance_12_dp"
+            android:layout_marginBottom="@dimen/distance_24_dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/distance_12_dp"
+                android:paddingTop="@dimen/distance_12_dp"
+                android:paddingEnd="@dimen/distance_12_dp"
+                android:paddingBottom="@dimen/distance_12_dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/distance_4_dp"
+                        android:layout_marginEnd="@dimen/distance_4_dp"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/distance_6_dp"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/youtube_id_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@drawable/ic_yt" />
+
+                    <Button
+                        android:id="@+id/yt_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/visit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/distance_4_dp"
+                    android:layout_marginEnd="@dimen/distance_4_dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/distance_8_dp"
+                    android:paddingBottom="@dimen/distance_8_dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/distance_6_dp"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:text="@string/telegram_id_label"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@drawable/ic_tg" />
+
+                    <TextView
+                        android:id="@+id/tg_id"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/work_sans_normal"
+                        android:paddingStart="@dimen/distance_4_dp"
+                        android:paddingEnd="@dimen/distance_18_dp"
+                        android:text="@string/telegram_id"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18_sp"
+                        android:textStyle="bold"
+                        app:drawableEndCompat="@drawable/outline_content_copy_24" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

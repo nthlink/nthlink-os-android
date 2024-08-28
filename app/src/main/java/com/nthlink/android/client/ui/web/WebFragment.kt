@@ -9,17 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.FragmentWebBinding
+import com.nthlink.android.client.utils.copyToClipboard
+import com.nthlink.android.client.utils.openWebPage
 import com.nthlink.android.client.utils.removeAllCookies
-import tw.hankli.brookray.core.extension.copyToClipboard
-import tw.hankli.brookray.core.extension.openWebPage
-import tw.hankli.brookray.core.extension.shareText
-import tw.hankli.brookray.core.extension.showToast
+import com.nthlink.android.client.utils.shareText
 
 class WebFragment : Fragment(), MenuProvider, WebChrome.Callback {
     private var _binding: FragmentWebBinding? = null
@@ -75,7 +75,8 @@ class WebFragment : Fragment(), MenuProvider, WebChrome.Callback {
         return when (item.itemId) {
             R.id.option_web_item_1 -> {
                 copyToClipboard(getString(R.string.app_name), args.url)
-                showToast(R.string.word_coped_link)
+                Toast.makeText(requireContext(), R.string.word_copied_link, Toast.LENGTH_LONG)
+                    .show()
                 true
             }
 

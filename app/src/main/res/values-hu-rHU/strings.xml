@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Az Ön magánélete az első</string>
 
     <string name="privacy_notice_text">Az nthLink NEM gyűjt személyazonosításra alkalmas információkat vagy az Ön által meglátogatott webhelyeket / online szolgáltatásokat. Az nthLink az Ön IP-címét, az eszköz alapértelmezett nyelvét, a cookie-kat és az alapvető eszközinformációkat ( pl. az operációs rendszer információit) használja a kapott szolgáltatások testreszabásához, például megkeresi a legközelebbi szervereket, amelyek a legjobban tudják támogatni az eszközt, és a megfelelő weboldalt jeleníti meg, amikor csatlakozik az nthLink szerverhez.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">csatlakoztatva</string>
 
+    <string name="connection_server_state_initializing">Inicializálás…</string>
+
     <string name="connection_server_state_connecting">Csatlakozás…</string>
 
     <string name="connection_server_state_disconnecting">Leválasztás…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Visszajelzés</string>
 
     <string name="feedback_issue_category_title">Probléma kategória</string>
-
 
     <string name="feedback_description_title">Leírás</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Betöltés</string>
 
-    <string name="word_coped_link">Másolt hivatkozás</string>
+    <string name="word_copied_link">Másolt hivatkozás</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Egyéb</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Letöltés</string>
+
+    <string name="copied">Másolva</string>
+
+    <string name="copied_telegram_id">Kérem illessze be az azonosítót a Telegramon.</string>
+
+    <string name="update">Frissítés</string>
+    <string name="update_is_up_to_date">Az alkalmazás naprakész</string>
+    <string name="update_canceled">A frissítés törölve</string>
+    <string name="update_has_new_apk">Van egy új verzió a nthlink alkalmazásból. Szeretnéd letölteni?</string>
+
+    <string name="something_went_wrong">Valami elromlott. Kérjük, próbálja újra.</string>
+
+    <string name="follow_us">Kövess minket</string>
+    <string name="visit">Látogatás</string>
 </resources>

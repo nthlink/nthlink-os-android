@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">귀하의 개인 정보가 우선입니다</string>
 
     <string name="privacy_notice_text">nthLink는 귀하가 방문하는 개인 식별 정보 또는 웹사이트 / 온라인 서비스를 수집하지 않습니다. nthLink 서버에 연결하여 귀하의 IP 주소, 장치의 기본 언어, 쿠키 및 기본 장치 정보 ( 예: 운영 체제 정보)를 사용하여 귀하의 장치를 가장 잘 지원할 수 있는 가장 가까운 서버를 찾고 연결 시 적절한 웹 페이지를 표시하는 등 귀하가 받는 서비스를 사용자 정의합니다.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">연결됨</string>
 
+    <string name="connection_server_state_initializing">초기화 중…</string>
+
     <string name="connection_server_state_connecting">연결 중…</string>
 
     <string name="connection_server_state_disconnecting">연결 해제 중…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">피드백</string>
 
     <string name="feedback_issue_category_title">문제 카테고리</string>
-
 
     <string name="feedback_description_title">설명</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">로딩 중</string>
 
-    <string name="word_coped_link">대응 링크</string>
+    <string name="word_copied_link">대응 링크</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>기타</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">다운로드</string>
+
+    <string name="copied">복사됨</string>
+
+    <string name="copied_telegram_id">Telegram에 ID를 붙여넣어주세요.</string>
+
+    <string name="update">업데이트</string>
+    <string name="update_is_up_to_date">앱이 최신 상태입니다</string>
+    <string name="update_canceled">업데이트가 취소되었습니다</string>
+    <string name="update_has_new_apk">nthlink의 새 버전이 있습니다. 다운로드하시겠습니까?</string>
+
+    <string name="something_went_wrong">문제가 발생했습니다. 다시 시도해 주세요.</string>
+
+    <string name="follow_us">팔로우 하세요</string>
+    <string name="visit">방문</string>
 </resources>

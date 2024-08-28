@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Din integritet kommer först</string>
 
     <string name="privacy_notice_text">nthLink samlar INTE in personligt identifierbar information eller webbplatser / onlinetjänster som du besöker. nthLink använder din IP-adress, enhetens standardspråk, cookies och grundläggande enhetsinformation ( t.ex. operativsysteminformation ) för att anpassa de tjänster som du får, som att hitta närmaste servrar som bäst kan stödja din enhet och visa rätt webbsida när du ansluter till nthLink-servern.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Ansluten</string>
 
+    <string name="connection_server_state_initializing">Initialiserar…</string>
+
     <string name="connection_server_state_connecting">Ansluter…</string>
 
     <string name="connection_server_state_disconnecting">Kopplar bort…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Respons</string>
 
     <string name="feedback_issue_category_title">Problemkategori</string>
-
 
     <string name="feedback_description_title">Beskrivning</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Läser in</string>
 
-    <string name="word_coped_link">Klarad länk</string>
+    <string name="word_copied_link">Klarad länk</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Övrig</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Ladda ner</string>
+
+    <string name="copied">Kopierat</string>
+
+    <string name="copied_telegram_id">Klistra in ID på Telegram.</string>
+
+    <string name="update">Uppdatera</string>
+    <string name="update_is_up_to_date">Din app är uppdaterad</string>
+    <string name="update_canceled">Uppdateringen är avbruten</string>
+    <string name="update_has_new_apk">Det finns en ny version av nthlink. Vill du ladda ner?</string>
+
+    <string name="something_went_wrong">Något gick fel. Försök igen.</string>
+
+    <string name="follow_us">Följ oss</string>
+    <string name="visit">Besök</string>
 </resources>

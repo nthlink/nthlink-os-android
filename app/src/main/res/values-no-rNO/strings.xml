@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Personvernet ditt kommer først</string>
 
     <string name="privacy_notice_text">nthLink samler IKKE inn personlig identifiserbar informasjon eller nettsteder / netttjenester som du besøker. nthLink bruker din IP-adresse, enhetens standardspråk, informasjonskapsler og grunnleggende enhetsinformasjon ( f.eks. operativsysteminformasjon) for å tilpasse tjenestene du mottar, for eksempel å finne de nærmeste serverne som best kan støtte enheten din og vise den riktige nettsiden når du kobler til nthLink-serveren.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Tilkoblet</string>
 
+    <string name="connection_server_state_initializing">Initialiserer…</string>
+
     <string name="connection_server_state_connecting">Kobler til…</string>
 
     <string name="connection_server_state_disconnecting">Kobler fra …</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Tilbakemelding</string>
 
     <string name="feedback_issue_category_title">Problemkategori</string>
-
 
     <string name="feedback_description_title">Beskrivelse</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Laster</string>
 
-    <string name="word_coped_link">Håndtert lenke</string>
+    <string name="word_copied_link">Håndtert lenke</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Annen</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Last ned</string>
+
+    <string name="copied">Kopiert</string>
+
+    <string name="copied_telegram_id">Vennligst lim inn ID på Telegram.</string>
+
+    <string name="update">Oppdater</string>
+    <string name="update_is_up_to_date">Appen din er oppdatert</string>
+    <string name="update_canceled">Oppdateringen er avbrutt</string>
+    <string name="update_has_new_apk">Det er en ny versjon av nthlink. Vil du laste ned?</string>
+
+    <string name="something_went_wrong">Noe gikk galt. Vennligst prøv igjen.</string>
+
+    <string name="follow_us">Følg oss</string>
+    <string name="visit">Besøk</string>
 </resources>

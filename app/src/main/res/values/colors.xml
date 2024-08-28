@@ -10,11 +10,13 @@
     <color name="grey_F1F1F1">#F1F1F1</color>
     <color name="grey_CCF1F1F1">#CCF1F1F1</color>
     <color name="grey_C4C4C4">#C4C4C4</color>
+    <color name="grey_static">#AAA497</color>
 
     <!--  temporary new design  -->
     <color name="eggshell_white">#F2EAD6</color>
     <color name="neon_blue">#0061FF</color>
     <color name="link_text">#1849F6</color>
     <color name="eggshell_white_2">#73FAEFD5</color>
+    <color name="telegram_blue">#2381CC</color>
 
 </resources>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Το απόρρητό σας προέχει</string>
 
     <string name="privacy_notice_text">Το nthLink ΔΕΝ συλλέγει στοιχεία προσωπικής ταυτοποίησης ή ιστότοπους / διαδικτυακές υπηρεσίες που επισκέπτεστε. Το nthLink χρησιμοποιεί τη διεύθυνση IP, την προεπιλεγμένη γλώσσα της συσκευής, τα cookies και τις βασικές πληροφορίες συσκευής ( π.χ. πληροφορίες λειτουργικού συστήματος) για να προσαρμόσει τις υπηρεσίες που λαμβάνετε, όπως τον εντοπισμό των πλησιέστερων διακομιστών που μπορούν να υποστηρίξουν καλύτερα τη συσκευή σας και την εμφάνιση της κατάλληλης ιστοσελίδας κατά τη σύνδεση στον διακομιστή nthLink.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Συνδεδεμένος</string>
 
+    <string name="connection_server_state_initializing">Αρχικοποίηση…</string>
+
     <string name="connection_server_state_connecting">Σύνδεση…</string>
 
     <string name="connection_server_state_disconnecting">Αποσύνδεση…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Ανατροφοδότηση</string>
 
     <string name="feedback_issue_category_title">Κατηγορία θέματος</string>
-
 
     <string name="feedback_description_title">Περιγραφή</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Φόρτωση</string>
 
-    <string name="word_coped_link">Αντιμετωπισμένος σύνδεσμος</string>
+    <string name="word_copied_link">Αντιμετωπισμένος σύνδεσμος</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Λήψη</string>
+
+    <string name="copied">Αντιγράφηκε</string>
+
+    <string name="copied_telegram_id">Παρακαλώ επικολλήστε το ID στο Telegram.</string>
+
+    <string name="update">Ενημέρωση</string>
+    <string name="update_is_up_to_date">Η εφαρμογή σας είναι ενημερωμένη</string>
+    <string name="update_canceled">Η ενημέρωση ακυρώθηκε</string>
+    <string name="update_has_new_apk">Υπάρχει νέα έκδοση του nthlink. Θα θέλατε να κατεβάσετε;</string>
+
+    <string name="something_went_wrong">Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.</string>
+
+    <string name="follow_us">Ακολουθήστε μας</string>
+    <string name="visit">Επισκεφτείτε</string>
 </resources>

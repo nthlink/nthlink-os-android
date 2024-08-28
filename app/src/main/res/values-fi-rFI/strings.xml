@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Yksityisyytesi on etusijalla</string>
 
     <string name="privacy_notice_text">nthLink EI kerää henkilökohtaisia tunnistetietoja tai verkkosivustoja / verkkopalveluita, joissa vierailet. nthLink käyttää IP-osoitettasi, laitteesi oletuskieltä, evästeitä ja laitteen perustietoja ( esim. käyttöjärjestelmätietoja) mukauttaakseen vastaanottamasi palvelut, kuten lähimpien palvelinten paikallistamisen, jotka voivat parhaiten tukea laitettasi ja näyttää oikean web-sivun, kun muodostat yhteyden nthLink-palvelin.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Yhdistetty</string>
 
+    <string name="connection_server_state_initializing">Käynnistetään…</string>
+
     <string name="connection_server_state_connecting">Yhdistetään…</string>
 
     <string name="connection_server_state_disconnecting">Katkaistaan…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Palaute</string>
 
     <string name="feedback_issue_category_title">Ongelman luokka</string>
-
 
     <string name="feedback_description_title">Kuvaus</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Ladataan</string>
 
-    <string name="word_coped_link">Selvitetty linkki</string>
+    <string name="word_copied_link">Selvitetty linkki</string>
 
     <string-array name="issue_categories">
 
@@ -81,4 +80,23 @@
 
     </string-array>
 
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
+
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">Lataa</string>
+
+    <string name="copied">Kopioitu</string>
+
+    <string name="copied_telegram_id">Liitä tunnus Telegramiin.</string>
+
+    <string name="update">Päivitä</string>
+    <string name="update_is_up_to_date">Sovelluksesi on ajan tasalla</string>
+    <string name="update_canceled">Päivitys peruutettu</string>
+    <string name="update_has_new_apk">Saatavilla on uusi versio nthlink-sovelluksesta. Haluatko ladata sen?</string>
+
+    <string name="something_went_wrong">Jokin meni pieleen. Yritä uudelleen.</string>
+
+    <string name="follow_us">Seuraa meitä</string>
+    <string name="visit">Käy</string>
 </resources>

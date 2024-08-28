@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <string name="privacy_notice_title">Gizliliğiniz her şeyden önce gelir</string>
 
     <string name="privacy_notice_text">nthLink, kişisel olarak tanımlanabilir bilgileri veya ziyaret ettiğiniz web sitelerini / çevrimiçi hizmetleri TOPLAMAZ. nthLink, cihazınızı en iyi destekleyebilecek en yakın sunucuları bulmak ve bağlandığınızda uygun web sayfasını görüntülemek gibi aldığınız hizmetleri özelleştirmek için IP adresinizi, cihazın varsayılan dilini, tanımlama bilgilerini ve temel cihaz bilgilerini ( örneğin işletim sistemi bilgileri) kullanır. nthLink sunucusu.</string>
@@ -18,6 +16,8 @@
 
     <string name="connection_server_state_connected">Bağlı</string>
 
+    <string name="connection_server_state_initializing">Başlatılıyor…</string>
+
     <string name="connection_server_state_connecting">Bağlanıyor…</string>
 
     <string name="connection_server_state_disconnecting">Bağlantı kesiliyor…</string>
@@ -25,7 +25,6 @@
     <string name="feedback_page_title">Geri bildirim</string>
 
     <string name="feedback_issue_category_title">Sorun kategorisi</string>
-
 
     <string name="feedback_description_title">Açıklama</string>
 
@@ -65,7 +64,7 @@
 
     <string name="word_loading">Yükleniyor</string>
 
-    <string name="word_coped_link">Kopuk bağlantı</string>
+    <string name="word_copied_link">Kopuk bağlantı</string>
 
     <string-array name="issue_categories">
 
@@ -80,5 +79,23 @@
         <item>Diğer</item>
 
     </string-array>
+    <string name="url_faq">https://www.nthlink.com/#faq</string>
 
+    <string name="url_policies">https://nthlink.com/policies/</string>
+
+    <string name="download">İndir</string>
+
+    <string name="copied">Kopyalandı</string>
+
+    <string name="copied_telegram_id">Lütfen Telegram\'a kimliği yapıştırın.</string>
+
+    <string name="update">Güncelle</string>
+    <string name="update_is_up_to_date">Uygulamanız güncel</string>
+    <string name="update_canceled">Güncelleme iptal edildi</string>
+    <string name="update_has_new_apk">nthlink\'in yeni bir sürümü var. İndirmek ister misiniz?</string>
+
+    <string name="something_went_wrong">Bir şeyler ters gitti. Lütfen tekrar deneyin.</string>
+
+    <string name="follow_us">Bizi takip edin</string>
+    <string name="visit">Ziyaret</string>
 </resources>
