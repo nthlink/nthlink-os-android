@@ -3,7 +3,11 @@ package com.nthlink.android.client.ui.web
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 
-class WebChrome(private val callback: Callback) : WebChromeClient() {
+const val CUSTOM_USER_AGENT =
+    "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+val customExtraHeaders = mapOf("X-Requested-With" to "XMLHttpRequest")
+
+class CustomWebChromeClient(private val callback: Callback) : WebChromeClient() {
     override fun onProgressChanged(view: WebView, newProgress: Int) {
         callback.onProgressChanged(view, newProgress)
 

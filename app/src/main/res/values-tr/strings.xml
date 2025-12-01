@@ -1,101 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">Gizliliğiniz her şeyden önce gelir</string>
-
-    <string name="privacy_notice_text">nthLink, kişisel olarak tanımlanabilir bilgileri veya ziyaret ettiğiniz web sitelerini / çevrimiçi hizmetleri TOPLAMAZ. nthLink, cihazınızı en iyi destekleyebilecek en yakın sunucuları bulmak ve bağlandığınızda uygun web sayfasını görüntülemek gibi aldığınız hizmetleri özelleştirmek için IP adresinizi, cihazın varsayılan dilini, tanımlama bilgilerini ve temel cihaz bilgilerini ( örneğin işletim sistemi bilgileri) kullanır. nthLink sunucusu.</string>
-
     <string name="privacy_notice_submit">Kabul et ve devam et</string>
-
-    <string name="connection_hint_connect">Bağlanmak için dokunun</string>
-
-    <string name="connection_hint_disconnect">Bağlantıyı kesmek için dokunun</string>
-
     <string name="connection_label_connect">Bağlamak</string>
-
     <string name="connection_label_disconnect">Bağlantıyı kes</string>
-
-    <string name="connection_server_state_connected">Bağlı</string>
-
     <string name="connection_server_state_initializing">Başlatılıyor…</string>
-
     <string name="connection_server_state_connecting">Bağlanıyor…</string>
-
     <string name="connection_server_state_disconnecting">Bağlantı kesiliyor…</string>
-
     <string name="feedback_page_title">Geri bildirim</string>
-
     <string name="feedback_issue_category_title">Sorun kategorisi</string>
-
     <string name="feedback_description_title">Açıklama</string>
-
     <string name="feedback_note_text">Açıklamanız, e-posta adresiniz (varsa) ve ek bilgiler nthLink ekibine gönderilecektir. Veri toplama politikamız için lütfen nthLink web sitesinin Gizlilik Politikasına bakın.</string>
-
     <string name="feedback_submit">Göndermek</string>
-
     <string name="feedback_submit_failed_message">nthlink sunucusuna bağlanılamıyor.</string>
-
     <string name="feedback_submit_success_message">Geliştirmemize yardımcı olduğunuz için teşekkürler! Sizden haber almayı seviyoruz.</string>
-
-    <string name="feedback_init_failed_message">Sunucu yok</string>
-
     <string name="about_page_title">Hakkında</string>
-
     <string name="about_version">Sürüm %s</string>
-
     <string name="about_text">Kısıtlı bilgilere ihtiyaç duyan insan hakları avukatlarına destek olmak ve bakış açılarını ifade etmek amacıyla 2016 yılında nthLink\'i kuran deneyimli yazılım ve bilgi güvenliği mühendislerinden oluşan bir grubuz. O zamandan bu yana hizmeti daha geniş bir kitlenin kullanımına sunduk. Geliştirme ekibimiz hem ağ güvenliği teknolojisi hem de hizmet güvenilirliği konusunda uzmandır.\n\nHizmetimiz ücretsizdir ve sponsorlarımız ve ortaklarımız sayesinde ücretsiz kalacaktır. Bunlar:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nGeliştirme ekibimiz, hem sansür atlatma teknolojisinin gelişmişliği hem de hizmetin güvenilirliği konusunda üstündür. Bu uzmanlık alanındaki yılların deneyimiyle, hedeflenen coğrafyalardaki kullanıcılara, aksi takdirde sansürlenmiş bilgilere basit, güvenli ve güvenilir erişim sağlıyoruz.</string>
-
-    <string name="menu_drawer_item_1">Ev</string>
-
+    <string name="menu_drawer_item_1">Bağlan</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">Yardım</string>
-
     <string name="menu_drawer_item_5">Uygulamayı Değerlendir</string>
-
     <string name="menu_web_item_1">Bağlantıyı kopyala</string>
-
     <string name="menu_web_item_2">Tarayıcıda aç</string>
-
     <string name="menu_web_item_3">Linki paylaş</string>
-
     <string name="menu_connection_item_1">Açılış sayfası</string>
-
     <string name="word_loading">Yükleniyor</string>
-
     <string name="word_copied_link">Kopuk bağlantı</string>
-
     <string-array name="issue_categories">
-
         <item>Genel geribildirim</item>
-
         <item>Bağlanamıyor</item>
-
         <item>Bağlantı hızı yavaş</item>
-
         <item>Öneriler</item>
-
         <item>Diğer</item>
-
     </string-array>
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">İndir</string>
-
     <string name="copied">Kopyalandı</string>
-
     <string name="copied_telegram_id">Lütfen Telegram\'a kimliği yapıştırın.</string>
-
     <string name="update">Güncelle</string>
     <string name="update_is_up_to_date">Uygulamanız güncel</string>
     <string name="update_canceled">Güncelleme iptal edildi</string>
     <string name="update_has_new_apk">nthlink\'in yeni bir sürümü var. İndirmek ister misiniz?</string>
-
     <string name="something_went_wrong">Bir şeyler ters gitti. Lütfen tekrar deneyin.</string>
-
     <string name="follow_us">Bizi takip edin</string>
     <string name="visit">Ziyaret</string>
+    <string name="kill_switch_dialog_description">Bu işlem VPN ayarlarını açacaktır. Devam etmek istiyor musunuz?\n\n\"Tamam\"a tıkladıktan sonra, nthlink\'in yanındaki dişli simgesine dokunarak \"Her zaman açık VPN\" ve \"VPN olmadan bağlantıları engelle\" seçeneklerini etkinleştirin.\n\nSistemin VPN uygulamasını doğru şekilde görüntülediğinden emin olmak için lütfen en az bir kez nthlink\'e bağlanın.</string>
+    <string name="diagnostic">Tanılama</string>
+    <string name="start_diagnostics">Tanılamayı Başlat</string>
+    <string name="diagnostic_description">nthLink olarak zaman zaman size tanılama verileri sağlayarak hizmetimizi geliştirmemize yardımcı olmanızı isteyebiliriz.\n\nButona tıklayarak tanılama süreci başlar, bilgiler toplanır ve sunucularımıza gönderilir. Toplanan tüm bilgilerin tamamen anonim olduğunu garanti ederiz.</string>
+    <string name="diagnostic_disconnect_alert">Tanılamayı başlatmak mevcut bağlantıyı kesecektir.\n\nDevam etmek istediğinize emin misiniz?</string>
+    <string name="diagnostic_copy_report_id">Rapor Kimliğini Kopyala</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="download_update">Güncellemeyi indir</string>
+    <string name="downloading_update">Güncelleme indiriliyor…</string>
+    <string name="update_download_complete">İndirme tamamlandı!\nnthLink uygulamasını güncellemek için Dosyalar uygulamasını açın, en yeni nthLink APK dosyasını bulun ve yüklemek için üzerine dokunun.</string>
+    <string name="open_files_app">Dosyalar uygulamasını aç</string>
 </resources>

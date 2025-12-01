@@ -1,102 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">Dit privatliv kommer først</string>
-
-    <string name="privacy_notice_text">nthLink indsamler IKKE personligt identificerbare oplysninger eller websteder / onlinetjenester, som du besøger. nthLink bruger din IP-adresse, enhedens standardsprog, cookies og grundlæggende enhedsoplysninger ( f.eks. operativsystemoplysninger) til at tilpasse de tjenester, du modtager, såsom at lokalisere de nærmeste servere, der bedst understøtter din enhed og vise den korrekte webside, når du opretter forbindelse til nthLink-serveren.</string>
-
     <string name="privacy_notice_submit">Accepter og fortsæt</string>
-
-    <string name="connection_hint_connect">Tryk for at oprette forbindelse</string>
-
-    <string name="connection_hint_disconnect">Tryk for at afbryde forbindelsen</string>
-
     <string name="connection_label_connect">Tilslut</string>
-
     <string name="connection_label_disconnect">Frakobling</string>
-
-    <string name="connection_server_state_connected">Tilsluttet</string>
-
     <string name="connection_server_state_initializing">Initialisering…</string>
-
     <string name="connection_server_state_connecting">Tilslutning…</string>
-
     <string name="connection_server_state_disconnecting">Afbryder forbindelsen…</string>
-
     <string name="feedback_page_title">Feedback</string>
-
     <string name="feedback_issue_category_title">Problemkategori</string>
-
     <string name="feedback_description_title">Beskrivelse</string>
-
     <string name="feedback_note_text">Din beskrivelse, e-mailadresse (hvis angivet) og yderligere oplysninger vil blive sendt til nthLink-teamet. Se venligst nthLink-webstedets privatlivspolitik for vores dataindsamlingspolitik.</string>
-
     <string name="feedback_submit">Send</string>
-
     <string name="feedback_submit_failed_message">Det er ikke muligt at oprette forbindelse til nthlink-serveren.</string>
-
     <string name="feedback_submit_success_message">Tak for at hjælpe os med at blive bedre! Vi elsker at høre fra dig.</string>
-
-    <string name="feedback_init_failed_message">Har ikke en server</string>
-
     <string name="about_page_title">Vedrørende</string>
-
     <string name="about_version">Version %s</string>
-
     <string name="about_text">Vi er en gruppe af erfarne software- og informationssikkerhedsingeniører, der startede nthLink i 2016 for at støtte menneskerettighedsadvokater, der havde brug for at indhente begrænset information og udtrykke deres perspektiver. Siden da har vi gjort tjenesten tilgængelig for den bredere offentlighed. Vores udviklingsteam er eksperter i både netværkssikkerhedsteknologi og servicepålidelighed.\n\nVores service er gratis og vil forblive gratis takket være vores sponsorer og partnere. De er:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nVores udviklingsteam udmærker sig både i det sofistikerede i teknologien til omgåelse af censur og pålideligheden af tjenesten. Med mange års erfaring inden for dette specialeområde giver vi brugerne i målrettede geografier enkel, sikker og pålidelig adgang til ellers censureret information.</string>
-
-    <string name="menu_drawer_item_1">Hjem</string>
-
+    <string name="menu_drawer_item_1">Tilslut</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">Hjælp</string>
-
     <string name="menu_drawer_item_5">Bedøm app</string>
-
     <string name="menu_web_item_1">Kopier link</string>
-
     <string name="menu_web_item_2">Åbn i browser</string>
-
     <string name="menu_web_item_3">Del link</string>
-
     <string name="menu_connection_item_1">Landingsside</string>
-
     <string name="word_loading">Indlæser</string>
-
     <string name="word_copied_link">Klaret link</string>
-
     <string-array name="issue_categories">
-
         <item>Generel feedback</item>
-
         <item>Kan ikke oprette forbindelse</item>
-
         <item>Forbindelseshastigheden er langsom</item>
-
         <item>Forslag</item>
-
         <item>Andet</item>
-
     </string-array>
-
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">Hent</string>
-
     <string name="copied">Kopieret</string>
-
     <string name="copied_telegram_id">Indsæt venligst ID på Telegram.</string>
-
     <string name="update">Opdater</string>
     <string name="update_is_up_to_date">Din app er opdateret</string>
     <string name="update_canceled">Opdateringen er annulleret</string>
     <string name="update_has_new_apk">Der er en ny version af nthlink. Vil du downloade?</string>
-
     <string name="something_went_wrong">Noget gik galt. Prøv venligst igen.</string>
-
     <string name="follow_us">Følg os</string>
     <string name="visit">Besøg</string>
+    <string name="kill_switch_dialog_description">Denne handling åbner VPN-indstillingerne. Vil du fortsætte?\n\nEfter at have klikket på \"OK\" skal du trykke på tandhjulsikonet ved siden af nthlink for at aktivere \"Altid-til VPN\" og \"Bloker forbindelser uden VPN.\"\n\nSørg for at oprette forbindelse til nthlink mindst én gang for at sikre, at systemet viser VPN-appen korrekt.</string>
+    <string name="diagnostic">Diagnose</string>
+    <string name="start_diagnostics">Start diagnostic</string>
+    <string name="diagnostic_description">Hos nthLink beder vi af og til om din hjælp til at forbedre vores service ved at levere diagnostiske data.\n\nNår du klikker på knappen, starter diagnosticeringsprocessen, der indsamler oplysninger og sender dem til vores servere. Vær sikker på, at alle indsamlede oplysninger er fuldstændigt anonyme.</string>
+    <string name="diagnostic_disconnect_alert">Start af diagnosticering vil afbryde den aktuelle forbindelse.\n\nEr du sikker på, at du vil fortsætte?</string>
+    <string name="diagnostic_copy_report_id">Kopiér rapport-id</string>
+    <string name="privacy_policy">Privatlivspolitik</string>
+    <string name="download_update">Download opdatering</string>
+    <string name="downloading_update">Downloader opdatering…</string>
+    <string name="update_download_complete">Download fuldført!\nFor at opdatere nthLink skal du åbne Filer-appen, finde den nyeste nthLink APK og trykke på den for at installere.</string>
+    <string name="open_files_app">Åbn appen Filer</string>
 </resources>

@@ -3,11 +3,17 @@ package com.nthlink.android.client.ui
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MenuItem
+import android.view.ViewGroup.MarginLayoutParams
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED
 import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED
 import androidx.lifecycle.lifecycleScope
@@ -19,12 +25,16 @@ import com.google.android.material.navigation.NavigationView
 import com.nthlink.android.client.BuildConfig
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.ActivityMainBinding
+import com.nthlink.android.client.updates.ApkDownloadReceiver
 import com.nthlink.android.client.updates.InAppUpdate
-import com.nthlink.android.client.updates.UpdateResult
-import com.nthlink.android.client.utils.EMPTY
+import com.nthlink.android.client.updates.InAppUpdateApk
+import com.nthlink.android.client.updates.InAppUpdateMessage
+import com.nthlink.android.client.updates.InAppUpdatePlay
 import com.nthlink.android.client.utils.installFromGooglePlay
 import com.nthlink.android.client.utils.openWebPage
 import com.nthlink.android.client.utils.showAlertDialog
+import com.nthlink.android.core.Root
+import com.nthlink.android.core.utils.EMPTY
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -41,8 +51,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var navController: NavController
     private lateinit var inAppUpdate: InAppUpdate
 
+    lateinit var root: Root
+        private set
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        // View binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -66,59 +82,82 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
+        initRoot()
         initInAppUpdate()
         initView()
+        handleIntent(intent)
+    }
+
+    private fun initRoot() {
+        root = Root.Builder().build(this)
     }
 
     private fun initInAppUpdate() {
-        inAppUpdate = InAppUpdate.getInstance(this)
+        inAppUpdate = if (installFromGooglePlay(this)) {
+            InAppUpdatePlay(this, activityResultRegistry, lifecycleScope)
+        } else {
+            InAppUpdateApk(lifecycleScope, root, ::navigateToApkUpdateFragment)
+        }
+
+        lifecycle.addObserver(inAppUpdate)
 
         lifecycleScope.launch {
-            inAppUpdate.updateResultFlow.collect { result ->
+            inAppUpdate.inAppUpdateFlow.collect { result ->
                 when (result) {
-                    is UpdateResult.CheckHasNewUpdate -> {
-                        displayNewUpdate(true)
+                    is InAppUpdateMessage.NewUpdateAvailable -> {
+                        displayNewUpdateRedPoint(true)
+                    }
 
-                        if (result.silent) return@collect
-                        showAlertDialog(R.string.update, R.string.update_has_new_apk) {
-                            downloadApp()
+                    is InAppUpdateMessage.UpToDate -> {
+                        if (result.notifyUser) {
+                            showAlertDialog(R.string.update, R.string.update_is_up_to_date)
                         }
                     }
 
-                    is UpdateResult.CheckUpToDate -> {
-                        if (result.silent) return@collect
-                        showAlertDialog(R.string.update, R.string.update_is_up_to_date)
+                    is InAppUpdateMessage.CheckFailed -> {
+                        if (result.notifyUser) {
+                            showAlertDialog(R.string.update, R.string.something_went_wrong)
+                        }
                     }
 
-                    is UpdateResult.CheckFailed -> {
-                        if (result.silent) return@collect
-                        showAlertDialog(R.string.update, R.string.something_went_wrong)
+                    InAppUpdateMessage.UpdateOk -> {
+                        displayNewUpdateRedPoint(false)
                     }
 
-                    UpdateResult.UpdateOk -> {
-                        displayNewUpdate(false)
-                    }
-
-                    UpdateResult.UpdateCanceled -> {
+                    InAppUpdateMessage.UpdateCanceled -> {
                         showAlertDialog(R.string.update, R.string.update_canceled)
                     }
 
-                    UpdateResult.UpdateFailed -> {
+                    InAppUpdateMessage.UpdateFailed -> {
                         showAlertDialog(R.string.update, R.string.something_went_wrong)
                     }
                 }
             }
         }
+
+        inAppUpdate.checkUpdate(updateIfAvailable = false)
     }
 
-    private fun displayNewUpdate(show: Boolean) {
+    private fun navigateToApkUpdateFragment(version: String, url: String) {
+        if (navController.currentDestination?.id == R.id.apkUpdateFragment) return
+
+        navController.navigate(
+            R.id.apkUpdateFragment,
+            Bundle().apply {
+                putString("version", version)
+                putString("url", url)
+            }
+        )
+    }
+
+    private fun displayNewUpdateRedPoint(show: Boolean) {
         with(binding.drawer.menu.findItem(R.id.menu_item_update)) {
             if (show) setActionView(R.layout.action_view_update) else setActionView(null)
         }
     }
 
     private fun initView() {
-        // init drawer
+        // Init drawer
         binding.appVersion.text = getString(R.string.about_version, BuildConfig.VERSION_NAME)
 
         binding.drawer.setupWithNavController(navController)
@@ -128,9 +167,42 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
 
-        // init toolbar
+        // Init toolbar
         setSupportActionBar(binding.layoutToolbar.toolbar)
         binding.layoutToolbar.toolbar.setupWithNavController(navController, appBarConfiguration)
+
+        // Handle overlaps for edge-to-edge display
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navHostFragment) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updateLayoutParams<MarginLayoutParams> {
+                leftMargin = insets.left
+                bottomMargin = insets.bottom
+                rightMargin = insets.right
+            }
+
+            WindowInsetsCompat.CONSUMED
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationView) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updateLayoutParams<MarginLayoutParams> {
+                leftMargin = insets.left
+                bottomMargin = insets.bottom
+                rightMargin = insets.right
+            }
+
+            WindowInsetsCompat.CONSUMED
+        }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleIntent(intent)
+    }
+
+    private fun handleIntent(intent: Intent?) {
+        // Click the update button in the drawer.
+        if (intent?.action == ApkDownloadReceiver.ACTION_OPEN_APK_UPDATE) updateApp()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -140,10 +212,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.menu_item_follow_us -> toFollowUs()
             R.id.menu_item_help -> toHelp()
             R.id.menu_item_feedback -> toFeedback()
+            R.id.menu_item_diagnostic -> toDiagnostic()
             R.id.menu_item_privacy_police -> toPrivacyPolice()
             R.id.menu_item_download -> downloadApp()
             R.id.menu_item_update -> updateApp()
             R.id.menu_item_rate_app -> rateApp()
+            R.id.menu_item_kill_switch -> showKillSwitchDialog()
             else -> false
         }
     }
@@ -167,6 +241,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return closeDrawer()
     }
 
+    private fun toDiagnostic(): Boolean {
+        navController.navigate(R.id.diagnosticFragment)
+        return closeDrawer()
+    }
+
     private fun toHelp(): Boolean {
         openWebPage(getString(R.string.url_faq))
         return closeDrawer()
@@ -183,7 +262,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun updateApp(): Boolean {
-        inAppUpdate.checkForUpdate()
+        inAppUpdate.checkUpdate(true)
         return closeDrawer()
     }
 
@@ -192,18 +271,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("market://details?id=$packageName")
+                    "market://details?id=$packageName".toUri()
                 )
             )
-        } catch (e: ActivityNotFoundException) {
+        } catch (_: ActivityNotFoundException) {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+                    "https://play.google.com/store/apps/details?id=$packageName".toUri()
                 )
             )
         }
 
+        return closeDrawer()
+    }
+
+    private fun showKillSwitchDialog(): Boolean {
+        showAlertDialog(
+            R.string.kill_switch,
+            R.string.kill_switch_dialog_description,
+            okListener = { startActivity(Intent(Settings.ACTION_VPN_SETTINGS)) }
+        )
         return closeDrawer()
     }
 

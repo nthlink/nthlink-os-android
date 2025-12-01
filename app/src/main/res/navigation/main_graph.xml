@@ -42,5 +42,24 @@
         android:label="@string/follow_us"
         tools:layout="@layout/fragment_follow_us" />
 
+    <fragment
+        android:id="@+id/diagnosticFragment"
+        android:name="com.nthlink.android.client.ui.diagnostic.DiagnosticFragment"
+        android:label="@string/diagnostic"
+        tools:layout="@layout/fragment_diagnostic" />
+
+    <fragment
+        android:id="@+id/apkUpdateFragment"
+        android:name="com.nthlink.android.client.ui.update.ApkUpdateFragment"
+        android:label="@string/update"
+        tools:layout="@layout/fragment_apk_update">
+        <argument
+            android:name="version"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+
 </navigation>
 

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Nthlinkandroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Nthlinkandroid" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/neon_blue</item>
         <item name="colorPrimaryVariant">@color/eggshell_white</item>
@@ -10,9 +10,9 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Nthlinkandroid.FullScreen" parent="Theme.Nthlinkandroid">

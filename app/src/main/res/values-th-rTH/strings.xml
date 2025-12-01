@@ -1,101 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">ความเป็นส่วนตัวของคุณมาก่อน</string>
-
-    <string name="privacy_notice_text">nthLink ไม่เก็บรวบรวมข้อมูลส่วนบุคคลหรือเว็บไซต์ / บริการออนไลน์ที่คุณเยี่ยมชม nthLink ใช้ที่อยู่ IP ของคุณ ภาษาเริ่มต้นของอุปกรณ์ คุกกี้ และข้อมูลอุปกรณ์พื้นฐาน ( เช่น ข้อมูลระบบปฏิบัติการ ) เพื่อปรับแต่งบริการที่คุณได้รับ เช่น ค้นหาเซิร์ฟเวอร์ที่ใกล้ที่สุดที่สามารถรองรับอุปกรณ์ของคุณได้ดีที่สุด และแสดงหน้าเว็บที่เหมาะสมเมื่อเชื่อมต่อกับ เซิร์ฟเวอร์ nthLink</string>
-
     <string name="privacy_notice_submit">ยอมรับและดำเนินการต่อ</string>
-
-    <string name="connection_hint_connect">แตะเพื่อเชื่อมต่อ</string>
-
-    <string name="connection_hint_disconnect">แตะเพื่อยกเลิกการเชื่อมต่อ</string>
-
     <string name="connection_label_connect">เชื่อมต่อ</string>
-
     <string name="connection_label_disconnect">ตัดการเชื่อมต่อ</string>
-
-    <string name="connection_server_state_connected">เชื่อมต่อแล้ว</string>
-
     <string name="connection_server_state_initializing">กำลังเริ่มต้น…</string>
-
     <string name="connection_server_state_connecting">กำลังเชื่อมต่อ…</string>
-
     <string name="connection_server_state_disconnecting">กำลังตัดการเชื่อมต่อ…</string>
-
     <string name="feedback_page_title">ข้อเสนอแนะ</string>
-
     <string name="feedback_issue_category_title">หมวดหมู่ปัญหา</string>
-
     <string name="feedback_description_title">คำอธิบาย</string>
-
     <string name="feedback_note_text">คำอธิบาย ที่อยู่อีเมลของคุณ (หากมี) และข้อมูลเพิ่มเติมจะถูกส่งไปยังทีมงาน nthLink โปรดดูนโยบายความเป็นส่วนตัวของเว็บไซต์ nthLink สำหรับนโยบายการเก็บรวบรวมข้อมูลของเรา</string>
-
     <string name="feedback_submit">ส่ง</string>
-
     <string name="feedback_submit_failed_message">ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ nthlink</string>
-
     <string name="feedback_submit_success_message">ขอบคุณที่ช่วยเราปรับปรุง! เราชอบที่จะได้ยินจากคุณ</string>
-
-    <string name="feedback_init_failed_message">ไม่มีเซิร์ฟเวอร์</string>
-
     <string name="about_page_title">เกี่ยวกับ</string>
-
     <string name="about_version">เวอร์ชัน %s</string>
-
     <string name="about_text">เราคือกลุ่มวิศวกรซอฟต์แวร์และความปลอดภัยข้อมูลที่มีประสบการณ์ซึ่งก่อตั้ง nthLink ในปี 2559 เพื่อสนับสนุนนักกฎหมายด้านสิทธิมนุษยชนที่ต้องการรับข้อมูลที่ถูกจำกัดและเพื่อแสดงมุมมองของพวกเขา ตั้งแต่นั้นมาเราได้ให้บริการแก่สาธารณชนในวงกว้างขึ้น ทีมพัฒนาของเราเป็นผู้เชี่ยวชาญด้านเทคโนโลยีความปลอดภัยเครือข่ายและความน่าเชื่อถือของบริการ\n\nบริการของเราฟรีและจะยังคงฟรีต่อไป ขอขอบคุณผู้สนับสนุนและพันธมิตรของเรา พวกเขาคือ:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nทีมพัฒนาของเรามีความเป็นเลิศทั้งในด้านความซับซ้อนของเทคโนโลยีการหลบเลี่ยงการเซ็นเซอร์และความน่าเชื่อถือของบริการ ด้วยประสบการณ์หลายปีในด้านพิเศษนี้ เราให้ผู้ใช้ในพื้นที่เป้าหมายทางภูมิศาสตร์ที่เข้าถึงได้ง่าย ปลอดภัย และเชื่อถือได้ในการเข้าถึงข้อมูลที่มีการเซ็นเซอร์อย่างอื่น</string>
-
-    <string name="menu_drawer_item_1">บ้าน</string>
-
+    <string name="menu_drawer_item_1">เชื่อมต่อ</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">ช่วย</string>
-
     <string name="menu_drawer_item_5">ให้คะแนนแอป</string>
-
     <string name="menu_web_item_1">คัดลอกลิงค์</string>
-
     <string name="menu_web_item_2">เปิดในเบราว์เซอร์</string>
-
     <string name="menu_web_item_3">แบ่งปันลิงค์</string>
-
     <string name="menu_connection_item_1">หน้า Landing Page</string>
-
     <string name="word_loading">กำลังโหลด</string>
-
     <string name="word_copied_link">ลิงก์ที่ถูกจัดการ</string>
-
     <string-array name="issue_categories">
-
         <item>ข้อเสนอแนะทั่วไป</item>
-
         <item>ไม่สามารถเชื่อมต่อ</item>
-
         <item>ความเร็วในการเชื่อมต่อช้า</item>
-
         <item>คำแนะนำ</item>
-
         <item>อื่น ๆ</item>
-
     </string-array>
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">ดาวน์โหลด</string>
-
     <string name="copied">คัดลอกแล้ว</string>
-
     <string name="copied_telegram_id">กรุณาวางรหัสบน Telegram</string>
-
     <string name="update">อัปเดต</string>
     <string name="update_is_up_to_date">แอปของคุณเป็นเวอร์ชันล่าสุดแล้ว</string>
     <string name="update_canceled">การอัปเดตถูกยกเลิก</string>
     <string name="update_has_new_apk">มีเวอร์ชันใหม่ของ nthlink คุณต้องการดาวน์โหลดหรือไม่?</string>
-
     <string name="something_went_wrong">มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง</string>
-
     <string name="follow_us">ติดตามเรา</string>
     <string name="visit">เยี่ยมชม</string>
+    <string name="kill_switch_dialog_description">การดำเนินการนี้จะเปิดการตั้งค่า VPN คุณต้องการดำเนินการต่อหรือไม่?\n\nหลังจากคลิก \"ตกลง\" ให้แตะไอคอนเฟืองข้าง nthlink เพื่อเปิดใช้งาน \"VPN ตลอดเวลา\" และ \"บล็อกการเชื่อมต่อโดยไม่มี VPN\"\n\nโปรดตรวจสอบว่าคุณได้เชื่อมต่อกับ nthlink อย่างน้อยหนึ่งครั้งเพื่อให้มั่นใจว่าระบบแสดงแอป VPN อย่างถูกต้อง</string>
+    <string name="diagnostic">การวินิจฉัย</string>
+    <string name="start_diagnostics">เริ่มการวินิจฉัย</string>
+    <string name="diagnostic_description">ที่ nthLink เราอาจขอความร่วมมือจากคุณเป็นครั้งคราวเพื่อปรับปรุงบริการของเราโดยการให้ข้อมูลการวินิจฉัย\n\nเมื่อคลิกปุ่ม กระบวนการวินิจฉัยจะเริ่มขึ้น รวบรวมข้อมูลและส่งไปยังเซิร์ฟเวอร์ของเรา มั่นใจได้ว่าข้อมูลทั้งหมดที่เก็บรวบรวมจะไม่เปิดเผยตัวตน</string>
+    <string name="diagnostic_disconnect_alert">การเริ่มการวินิจฉัยจะตัดการเชื่อมต่อปัจจุบัน\n\nคุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?</string>
+    <string name="diagnostic_copy_report_id">คัดลอก ID รายงาน</string>
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="download_update">ดาวน์โหลดการอัปเดต</string>
+    <string name="downloading_update">กำลังดาวน์โหลดการอัปเดต…</string>
+    <string name="update_download_complete">ดาวน์โหลดเสร็จสมบูรณ์!\nในการอัปเดต nthLink ให้เปิดแอปไฟล์ ค้นหา APK ของ nthLink เวอร์ชันล่าสุด แล้วแตะเพื่อติดตั้ง</string>
+    <string name="open_files_app">เปิดแอปไฟล์</string>
 </resources>

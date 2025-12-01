@@ -1,8 +1,7 @@
 package com.nthlink.android.core.utils
 
-import android.util.Log
 import com.nthlink.android.core.model.Config
-import kotlinx.serialization.encodeToString
+import com.nthlink.android.core.model.DiagnosisReport
 import kotlinx.serialization.json.Json
 
 internal object JsonParser {
@@ -13,13 +12,7 @@ internal object JsonParser {
     }
 
     fun toJson(config: Config): String = format.encodeToString(config)
+    fun toJson(report: DiagnosisReport): String = format.encodeToString(report)
 
-    fun toConfig(json: String): Config {
-        return try {
-            format.decodeFromString<Config>(json)
-        } catch (e: Throwable) {
-            Log.e(TAG, "toConfig err: ", e)
-            Config()
-        }
-    }
+    fun toConfig(json: String): Config = format.decodeFromString<Config>(json)
 }

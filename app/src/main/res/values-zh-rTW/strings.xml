@@ -1,47 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">您的隱私至上</string>
-    <string name="privacy_notice_text">nthLink 不會收集您訪問的個人身份信息或網站 / 在線服務。 nthLink 使用您的 IP 地址、設備的默認語言、cookie 和基本設備信息（例如操作系統信息）來定制您收到的服務，例如定位最能支持您的設備的最近服務器以及在連接到時顯示正確的網頁 nthLink 服務器。</string>
     <string name="privacy_notice_submit">同意並繼續</string>
-
-    <string name="connection_hint_connect">請點擊連線</string>
-    <string name="connection_hint_disconnect">請點擊中斷連線</string>
     <string name="connection_label_connect">連線</string>
     <string name="connection_label_disconnect">中斷連線</string>
-    <string name="connection_server_state_connected">已連線</string>
     <string name="connection_server_state_initializing">初始化…</string>
     <string name="connection_server_state_connecting">正在連線…</string>
     <string name="connection_server_state_disconnecting">正在中斷…</string>
-
     <string name="feedback_page_title">問題回報</string>
     <string name="feedback_issue_category_title">問題類別</string>
-
     <string name="feedback_description_title">描述</string>
     <string name="feedback_note_text">您的描述、電子郵件地址（如果提供）和其他信息將發送給 nthLink 團隊。有關我們的數據收集政策，請參閱 nthLink 網站的隱私政策。</string>
     <string name="feedback_submit">傳送</string>
     <string name="feedback_submit_failed_message">無法連線至 nthlink 服務器</string>
     <string name="feedback_submit_success_message">感謝你協助我們改善服務！歡迎隨時提供意見給我們。</string>
-    <string name="feedback_init_failed_message">沒有服務器</string>
-
     <string name="about_page_title">關於我們</string>
     <string name="about_version">版本 %s</string>
     <string name="about_text">我們是一群經驗豐富的軟體和資訊安全工程師，於 2016 年創立了 nthLink，為需要獲取受限資訊並表達觀點的人權律師提供支援。 從那時起，我們就向更廣泛的公眾提供了這項服務。 我們的開發團隊是網路安全技術和服務可靠性方面的專家。\n\n我們的服務是免費的，並且由於我們的贊助商和合作夥伴，我們將繼續免費。 他們是：\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\n我們的開發團隊在審查規避技術的複雜性和服務的可靠性方面均表現出色。 憑藉在這一專業領域的多年經驗，我們為目標地區的用戶提供簡單、安全、可靠的存取方式，以獲取未經審查的資訊。</string>
-
-    <string name="menu_drawer_item_1">首頁</string>
+    <string name="menu_drawer_item_1">連線</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
     <string name="menu_drawer_item_3">@string/about_page_title</string>
     <string name="menu_drawer_item_4">幫助</string>
     <string name="menu_drawer_item_5">評分</string>
-
     <string name="menu_web_item_1">複製連結</string>
     <string name="menu_web_item_2">在瀏覽器中開啟</string>
     <string name="menu_web_item_3">分享連結</string>
-
     <string name="menu_connection_item_1">首頁</string>
-
     <string name="word_loading">讀取中</string>
     <string name="word_copied_link">連結已複製</string>
-
     <string-array name="issue_categories">
         <item>一般問題</item>
         <item>無法連線</item>
@@ -49,22 +34,27 @@
         <item>建議</item>
         <item>其他</item>
     </string-array>
-
     <string name="url_faq">https://www.nthlink.com/zh/#faq</string>
     <string name="url_policies">https://nthlink.com/zh/policies/</string>
-
     <string name="download">下載</string>
-
     <string name="copied">已複製</string>
     <string name="copied_telegram_id">請在 Telegram 上貼上 ID。</string>
-
     <string name="update">更新</string>
     <string name="update_is_up_to_date">您的應用是最新的版本</string>
     <string name="update_canceled">更新已取消</string>
     <string name="update_has_new_apk">nthlink 有新版本。你想下載嗎？</string>
-
     <string name="something_went_wrong">出了點問題。請再試一次。</string>
-
     <string name="follow_us">追蹤我們</string>
     <string name="visit">前往</string>
+    <string name="kill_switch_dialog_description">此操作將開啟 VPN 設定。您要繼續嗎？\n\n點擊「確定」後，點擊 nthlink 旁邊的齒輪圖示以啟用「永遠開啟 VPN」和「封鎖無 VPN 連線」。\n\n請確保至少連接 nthlink 一次，以確保系統正確顯示 VPN 應用程式。</string>
+    <string name="diagnostic">診斷</string>
+    <string name="start_diagnostics">開始診斷</string>
+    <string name="diagnostic_description">在 nthLink，我們有時會請您協助提供診斷資料，以幫助我們改善服務。\n\n點擊按鈕後，診斷程序將開始，收集資訊並傳送至我們的伺服器。請放心，所有收集的資訊皆為完全匿名。</string>
+    <string name="diagnostic_disconnect_alert">開始診斷將中斷目前的連線。\n\n您確定要繼續嗎？</string>
+    <string name="diagnostic_copy_report_id">複製報告 ID</string>
+    <string name="privacy_policy">隱私權政策</string>
+    <string name="download_update">下載更新</string>
+    <string name="downloading_update">正在下載更新…</string>
+    <string name="update_download_complete">下載完成！\n要更新 nthLink，請打開「檔案」應用程式，找到最新的 nthLink APK，然後點按它以安裝。</string>
+    <string name="open_files_app">開啟檔案應用程式</string>
 </resources>

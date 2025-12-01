@@ -15,7 +15,7 @@ sealed class NewsModel(val viewType: Int, val title: String, val url: String) {
 
     companion object {
         const val NOTIFICATION = 0
-        const val NEWS_TITLE = 1
+        const val NEWS_TITLE = 2
     }
 
     class Notification(title: String, url: String) : NewsModel(NOTIFICATION, title, url)
@@ -26,6 +26,7 @@ sealed class NewsModel(val viewType: Int, val title: String, val url: String) {
         val excerpt: String,
         val image: String,
         url: String,
+        val pinToTop: Boolean,
         val categories: List<String>
     ) : NewsModel(viewType, title, url)
 }

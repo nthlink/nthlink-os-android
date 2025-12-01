@@ -13,13 +13,13 @@ private val keyClientId = stringPreferencesKey("clientId")
 
 // Preferences DataStore
 internal suspend fun saveConfig(context: Context, config: Config) {
-    val json = JsonParser.toJson(config.copy(servers = emptyList(), custom = EMPTY))
+    val json = JsonParser.toJson(config.copy(servers = emptyList(), customConfig = EMPTY))
     context.rootPrefs.secureSave(keyConfig, json)
 }
 
-internal suspend fun readConfig(context: Context): Config {
+internal suspend fun readConfig(context: Context): Config? {
     val json = context.rootPrefs.secureRead(keyConfig) ?: EMPTY
-    return JsonParser.toConfig(json)
+    return if (json.isEmpty()) null else JsonParser.toConfig(json)
 }
 
 internal suspend fun saveClientId(context: Context, clientId: String) {

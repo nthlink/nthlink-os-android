@@ -1,101 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">La tua privacy viene prima di tutto</string>
-
-    <string name="privacy_notice_text">nthLink NON raccoglie dati di identificazione personale o siti Web / servizi online che visiti. nthLink utilizza il tuo indirizzo IP, la lingua predefinita del dispositivo, i cookie e le informazioni di base del dispositivo ( ad es. informazioni sul sistema operativo) per personalizzare i servizi che ricevi, come individuare i server più vicini che possono supportare al meglio il tuo dispositivo e visualizzare la pagina web corretta al momento della connessione al server nthLink.</string>
-
     <string name="privacy_notice_submit">Accetta e continua</string>
-
-    <string name="connection_hint_connect">Tocca per connetterti</string>
-
-    <string name="connection_hint_disconnect">Tocca per disconnetterti</string>
-
     <string name="connection_label_connect">Connetti</string>
-
     <string name="connection_label_disconnect">Disconnetti</string>
-
-    <string name="connection_server_state_connected">Connesso</string>
-
     <string name="connection_server_state_initializing">Inizializzazione…</string>
-
     <string name="connection_server_state_connecting">Connessione in corso…</string>
-
     <string name="connection_server_state_disconnecting">Disconnessione…</string>
-
     <string name="feedback_page_title">Feedback</string>
-
     <string name="feedback_issue_category_title">Categoria problema</string>
-
     <string name="feedback_description_title">Descrizione</string>
-
     <string name="feedback_note_text">La tua descrizione, indirizzo email (se fornito) e informazioni aggiuntive verranno inviate al team di nthLink. Si prega di fare riferimento all\'Informativa sulla privacy del sito Web nthLink per la nostra politica sulla raccolta dei dati.</string>
-
     <string name="feedback_submit">Invia</string>
-
     <string name="feedback_submit_failed_message">Impossibile connettersi al server nthlink.</string>
-
     <string name="feedback_submit_success_message">Grazie per averci aiutato a migliorare! Siamo sempre contenti di sentirti.</string>
-
-    <string name="feedback_init_failed_message">Non hai un server</string>
-
     <string name="about_page_title">Informazioni</string>
-
     <string name="about_version">Versione %s</string>
-
     <string name="about_text">Siamo un gruppo di esperti ingegneri di software e sicurezza informatica che hanno avviato nthLink nel 2016 per supportare gli avvocati per i diritti umani che avevano bisogno di ottenere informazioni riservate ed esprimere le loro prospettive. Da allora abbiamo reso il servizio disponibile al pubblico più ampio. Il nostro team di sviluppo è esperto sia nella tecnologia di sicurezza della rete che nell\'affidabilità del servizio.\n\nIl nostro servizio è gratuito e rimarrà gratuito grazie ai nostri sponsor e partner. Sono:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nIl nostro team di sviluppo eccelle sia nella sofisticazione della tecnologia di elusione della censura che nell\'affidabilità del servizio. Con anni di esperienza in questa area di specialità, forniamo agli utenti in aree geografiche mirate un accesso semplice, sicuro e affidabile a informazioni altrimenti censurate.</string>
-
-    <string name="menu_drawer_item_1">Home</string>
-
+    <string name="menu_drawer_item_1">Connetti</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">Aiuto</string>
-
     <string name="menu_drawer_item_5">Valuta App</string>
-
     <string name="menu_web_item_1">Copia link</string>
-
     <string name="menu_web_item_2">Apri nel browser</string>
-
     <string name="menu_web_item_3">Condividi il link</string>
-
     <string name="menu_connection_item_1">Pagina di destinazione</string>
-
     <string name="word_loading">Caricamento in corso</string>
-
     <string name="word_copied_link">Collegamento affrontato</string>
-
     <string-array name="issue_categories">
-
         <item>Feedback generale</item>
-
         <item>Non riesce a connettersi</item>
-
         <item>La velocità di connessione è lenta</item>
-
         <item>Suggerimenti</item>
-
         <item>Altro</item>
-
     </string-array>
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">Scaricare</string>
-
     <string name="copied">Copiato</string>
-
     <string name="copied_telegram_id">Si prega di incollare l\'ID su Telegram.</string>
-
     <string name="update">Aggiornare</string>
     <string name="update_is_up_to_date">La tua app è aggiornata</string>
     <string name="update_canceled">L\'aggiornamento è stato annullato</string>
     <string name="update_has_new_apk">Esiste una nuova versione di nthlink. Vuoi scaricarla?</string>
-
     <string name="something_went_wrong">Qualcosa è andato storto. Per favore riprova.</string>
-
     <string name="follow_us">Seguici</string>
     <string name="visit">Visita</string>
+    <string name="kill_switch_dialog_description">Questa azione aprirà le impostazioni VPN. Vuoi continuare?\n\nDopo aver cliccato su \"OK\", tocca l\'icona dell\'ingranaggio accanto a nthlink per abilitare \"VPN sempre attiva\" e \"Blocca connessioni senza VPN.\"\n\nAssicurati di connetterti a nthlink almeno una volta per garantire che il sistema visualizzi correttamente l\'app VPN.</string>
+    <string name="diagnostic">Diagnostica</string>
+    <string name="start_diagnostics">Avvia diagnostica</string>
+    <string name="diagnostic_description">Su nthLink, talvolta chiediamo il tuo aiuto per migliorare il nostro servizio fornendo dati diagnostici.\n\nFacendo clic sul pulsante, il processo di diagnostica inizia, raccogliendo informazioni e trasmettendole ai nostri server. Stai tranquillo, tutte le informazioni raccolte sono completamente anonime.</string>
+    <string name="diagnostic_disconnect_alert">L\'avvio della diagnostica disconnetterà la connessione corrente.\n\nSei sicuro di voler procedere?</string>
+    <string name="diagnostic_copy_report_id">Copia ID del rapporto</string>
+    <string name="privacy_policy">Informativa sulla privacy</string>
+    <string name="download_update">Scarica aggiornamento</string>
+    <string name="downloading_update">Scaricando aggiornamento…</string>
+    <string name="update_download_complete">Download completato!\nPer aggiornare nthLink, apri l&amp;apos;app File, trova l&amp;apos;APK più recente di nthLink e toccalo per installarlo.</string>
+    <string name="open_files_app">Apri l\'app File</string>
 </resources>

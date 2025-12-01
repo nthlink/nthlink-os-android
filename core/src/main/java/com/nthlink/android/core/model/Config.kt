@@ -14,14 +14,16 @@ data class Config(
     val headlineNews: List<HeadlineNews> = emptyList(),
     @SerialName("notifications")
     val notifications: List<Notification> = emptyList(),
-    @SerialName("domainKeys")
-    val domainKeys: List<String> = emptyList(),
+    @SerialName("data")
+    val data: String = EMPTY,
     @SerialName("static")
     val static: Boolean = false,
-    @SerialName("use_custom")
-    val useCustom: Boolean = false,
-    @SerialName("custom")
-    val custom: String = EMPTY
+    @SerialName("use_custom_config")
+    val useCustomConfig: Boolean = false,
+    @SerialName("custom_config")
+    val customConfig: String = EMPTY,
+    @SerialName("current_versions")
+    val currentVersions: List<Version> = emptyList()
 ) {
     @Serializable
     data class Server(
@@ -57,6 +59,8 @@ data class Config(
         val image: String,
         @SerialName("url")
         val url: String,
+        @SerialName("pinToTop")
+        val pinToTop: Boolean = false,
         @SerialName("categories")
         val categories: List<String> = emptyList()
     )
@@ -65,6 +69,24 @@ data class Config(
     data class Notification(
         @SerialName("title")
         val title: String,
+        @SerialName("url")
+        val url: String
+    )
+
+    @Serializable
+    data class Version(
+        @SerialName("app_name")
+        val appName: String,
+        @SerialName("platforms")
+        val platforms: List<Platform>
+    )
+
+    @Serializable
+    data class Platform(
+        @SerialName("os")
+        val os: String,
+        @SerialName("version")
+        val version: String,
         @SerialName("url")
         val url: String
     )

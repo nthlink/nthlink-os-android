@@ -16,5 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "nthlink6-android"
 include ':app'
-include ':outline'
 include ':core'

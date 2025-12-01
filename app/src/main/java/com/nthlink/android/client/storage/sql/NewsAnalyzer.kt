@@ -2,7 +2,6 @@ package com.nthlink.android.client.storage.sql
 
 import com.nthlink.android.client.ui.connection.NewsModel
 import com.nthlink.android.core.model.Config
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -45,18 +44,17 @@ class NewsAnalyzer(private val dao: ClickedNewsDao, private val scope: Coroutine
                 it.excerpt,
                 it.image,
                 it.url,
+                it.pinToTop,
                 it.categories
             )
         }
     }
 
-    fun getRecommendedNews(): List<NewsModel> {
-        val newsList = ArrayList<NewsModel>().apply {
+    fun getPinnedAndRecommendedNews(): List<NewsModel> {
+        return ArrayList<NewsModel>().apply {
             addAll(notifications)
             addAll(newsTitles)
         }
-
-        return newsList
     }
 
     private suspend fun sortByUserPreference(newsList: List<Config.HeadlineNews>): List<Config.HeadlineNews> {

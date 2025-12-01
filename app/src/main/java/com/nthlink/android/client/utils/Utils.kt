@@ -12,16 +12,15 @@ import android.net.Uri
 import android.os.Build
 import android.webkit.CookieManager
 import android.webkit.ValueCallback
-import androidx.annotation.StyleRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.play.core.ktx.launchReview
 import com.google.android.play.core.ktx.requestReview
 import com.google.android.play.core.review.ReviewManagerFactory
+import com.nthlink.android.client.R
+import com.nthlink.android.core.utils.NO_RESOURCE
 
-const val EMPTY = ""
-const val ZERO = 0
-const val NO_RESOURCE = ZERO
 const val SHARE_TYPE_TEXT = "text/plain"
 
 fun removeAllCookies(callback: ValueCallback<Boolean>? = null) {
@@ -45,6 +44,33 @@ suspend fun requireRatingApp(activity: Activity) {
     }
 }
 
+fun showMessageDialog(
+    context: Context,
+    @StringRes messageId: Int,
+    @StringRes positiveText: Int = R.string.ok,
+    onPositive: (() -> Unit)? = null,
+    @StringRes negativeText: Int = R.string.cancel,
+    onNegative: (() -> Unit)? = null
+) {
+    showMaterialAlertDialog(context) {
+        setCancelable(false)
+        setMessage(messageId)
+        setPositiveButton(positiveText) { dialog, _ ->
+            onPositive?.invoke()
+            dialog.dismiss()
+        }
+
+        onNegative?.let {
+            setNegativeButton(negativeText) { dialog, _ ->
+                it.invoke()
+                dialog.dismiss()
+            }
+        }
+    }
+}
+
+fun getLoadWebUrlIntent(url: String) = Intent(ACTION_VIEW, Uri.parse(url))
+
 fun showMaterialAlertDialog(
     context: Context,
     overrideThemeResId: Int = NO_RESOURCE,
@@ -55,23 +81,11 @@ fun showMaterialAlertDialog(
     return builder.show()
 }
 
-fun showAlertDialog(
-    context: Context,
-    @StyleRes themeResId: Int = NO_RESOURCE,
-    setBuilder: AlertDialog.Builder.() -> Unit
-): AlertDialog {
-    val builder = AlertDialog.Builder(context, themeResId)
-    builder.setBuilder()
-    return builder.show()
-}
-
 fun copyToClipboard(context: Context, label: String, text: String) {
     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText(label, text)
     clipboard.setPrimaryClip(clip)
 }
-
-fun getLoadWebUrlIntent(url: String) = Intent(ACTION_VIEW, Uri.parse(url))
 
 fun getSendTextIntent(text: String, type: String = SHARE_TYPE_TEXT) = Intent().apply {
     action = ACTION_SEND

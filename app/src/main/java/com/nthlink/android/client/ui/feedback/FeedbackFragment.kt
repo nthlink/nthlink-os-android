@@ -8,37 +8,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.nthlink.android.client.App.Companion.TAG
 import com.nthlink.android.client.BuildConfig
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.FragmentFeedbackBinding
+import com.nthlink.android.client.ui.common.BindingFragment
 import com.nthlink.android.client.utils.openWebPage
 import com.nthlink.android.client.utils.showMaterialAlertDialog
 import com.nthlink.android.client.utils.showProgressDialog
 import com.nthlink.android.core.Root
+import com.nthlink.android.core.utils.EMPTY
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.Locale
 
-class FeedbackFragment : Fragment() {
-
-    private var _binding: FragmentFeedbackBinding? = null
-    private val binding get() = _binding!!
-
+class FeedbackFragment : BindingFragment<FragmentFeedbackBinding>() {
     private lateinit var issueCategories: Array<String>
 
-    override fun onCreateView(
+    override fun bindView(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        return binding.root
+        container: ViewGroup?
+    ): FragmentFeedbackBinding {
+        return FragmentFeedbackBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -70,7 +65,7 @@ class FeedbackFragment : Fragment() {
         binding.feedbackSubmit.isEnabled = false
 
         binding.inputDescription.addTextChangedListener {
-            binding.feedbackSubmit.isEnabled = it?.isNotEmpty() ?: false
+            binding.feedbackSubmit.isEnabled = it?.isNotEmpty() == true
         }
     }
 
@@ -85,8 +80,11 @@ class FeedbackFragment : Fragment() {
                 val result = withContext(IO) {
                     try {
                         Root.feedback(
+                            requireContext(),
                             feedbackType = feedbackType,
                             description = description,
+                            errorCode = EMPTY,
+                            errorMessage = EMPTY,
                             appVersion = BuildConfig.VERSION_NAME,
                             email = email
                         )
@@ -130,10 +128,5 @@ class FeedbackFragment : Fragment() {
             requireContext().createConfigurationContext(config).resources
                 .getStringArray(R.array.issue_categories)[index]
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

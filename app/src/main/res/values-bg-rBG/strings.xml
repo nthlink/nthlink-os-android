@@ -1,102 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">Вашата поверителност е на първо място</string>
-
-    <string name="privacy_notice_text">nthLink НЕ събира лична информация или уебсайтове / онлайн услуги, които посещавате. nthLink използва вашия IP адрес, езика по подразбиране на устройството, бисквитки и основна информация за устройството ( напр. информация за операционната система), за да персонализира услугите, които получавате, като например намиране на най-близките сървъри, които могат най-добре да поддържат вашето устройство, и показване на правилната уеб страница при свързване към сървъра nthLink.</string>
-
     <string name="privacy_notice_submit">Приемете и продължете</string>
-
-    <string name="connection_hint_connect">Докоснете за свързване</string>
-
-    <string name="connection_hint_disconnect">Докоснете, за да прекъснете връзката</string>
-
     <string name="connection_label_connect">Свържете се</string>
-
     <string name="connection_label_disconnect">Прекъснете връзката</string>
-
-    <string name="connection_server_state_connected">Свързани</string>
-
     <string name="connection_server_state_initializing">Инициализиране…</string>
-
     <string name="connection_server_state_connecting">Свързва се…</string>
-
     <string name="connection_server_state_disconnecting">Прекъсване на връзката…</string>
-
     <string name="feedback_page_title">Обратна връзка</string>
-
     <string name="feedback_issue_category_title">Категория на проблема</string>
-
     <string name="feedback_description_title">Описание</string>
-
     <string name="feedback_note_text">Вашето описание, имейл адрес (ако е предоставен) и допълнителна информация ще бъдат изпратени до екипа на nthLink. Моля, вижте Политиката за поверителност на уебсайта nthLink за нашата политика за събиране на данни.</string>
-
     <string name="feedback_submit">Изпрати</string>
-
     <string name="feedback_submit_failed_message">Не мога да се свържа със сървъра nthlink.</string>
-
     <string name="feedback_submit_success_message">Благодарим ви, че ни помагате да се подобрим! Обичаме да чуваме от вас.</string>
-
-    <string name="feedback_init_failed_message">Нямате сървър</string>
-
     <string name="about_page_title">Относно</string>
-
     <string name="about_version">Версия %s</string>
-
     <string name="about_text">Ние сме група от опитни инженери по софтуер и информационна сигурност, които стартираха nthLink през 2016 г., за да подкрепят адвокати по правата на човека, които трябваше да получат информация с ограничен достъп и да изразят своите гледни точки. Оттогава направихме услугата достъпна за широката публика. Нашият екип за разработка е експерт както в технологията за мрежова сигурност, така и в надеждността на услугата.\n\nНашата услуга е безплатна и ще остане безплатна благодарение на нашите спонсори и партньори. Те са:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nНашият екип от разработчици се отличава както със сложността на технологията за заобикаляне на цензурата, така и с надеждността на услугата. С дългогодишен опит в тази специализирана област, ние предоставяме на потребителите в целеви географски райони прост, безопасен и надежден достъп до иначе цензурирана информация.</string>
-
-    <string name="menu_drawer_item_1">У дома</string>
-
+    <string name="menu_drawer_item_1">Свържи се</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">Помощ</string>
-
     <string name="menu_drawer_item_5">Оценете приложението</string>
-
     <string name="menu_web_item_1">Копирай връзка</string>
-
     <string name="menu_web_item_2">Отворете в браузъра</string>
-
     <string name="menu_web_item_3">Сподели линк</string>
-
     <string name="menu_connection_item_1">Целева страница</string>
-
     <string name="word_loading">Зареждане</string>
-
     <string name="word_copied_link">Справена връзка</string>
-
     <string-array name="issue_categories">
-
         <item>Обща обратна връзка</item>
-
         <item>Не мога да се свържа</item>
-
         <item>Скоростта на връзката е бавна</item>
-
         <item>Предложения</item>
-
         <item>Друго</item>
-
     </string-array>
-
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">Изтегляне</string>
-
     <string name="copied">Копирано</string>
-
     <string name="copied_telegram_id">Моля, поставете ID в Telegram.</string>
-
     <string name="update">Актуализиране</string>
     <string name="update_is_up_to_date">Вашето приложение е актуално</string>
     <string name="update_canceled">Актуализацията е отменена</string>
     <string name="update_has_new_apk">Има нова версия на nthlink. Искате ли да изтеглите?</string>
-
     <string name="something_went_wrong">Нещо се обърка. Моля, опитайте отново.</string>
-
     <string name="follow_us">Следвайте ни</string>
     <string name="visit">Посетете</string>
+    <string name="kill_switch_dialog_description">Това действие ще отвори настройките на VPN. Искате ли да продължите?\n\nСлед като кликнете \"OK\", докоснете иконата на зъбното колело до nthlink, за да активирате \"Винаги включен VPN\" и \"Блокиране на връзки без VPN.\"\n\nМоля, уверете се, че сте се свързали с nthlink поне веднъж, за да гарантирате, че системата показва правилно VPN приложението.</string>
+    <string name="diagnostic">Диагностика</string>
+    <string name="start_diagnostics">Стартиране на диагностика</string>
+    <string name="diagnostic_description">В nthLink понякога търсим вашата помощ, за да подобрим нашата услуга, чрез предоставяне на диагностични данни.\n\nКликвайки бутона, процесът на диагностика започва, събирайки информация и изпращайки я до нашите сървъри. Уверяваме ви, че цялата събрана информация е напълно анонимна.</string>
+    <string name="diagnostic_disconnect_alert">Започването на диагностика ще прекъсне текущата връзка.\n\nСигурни ли сте, че искате да продължите?</string>
+    <string name="diagnostic_copy_report_id">Копирайте идентификатора на доклада</string>
+    <string name="privacy_policy">Политика за поверителност</string>
+    <string name="download_update">Изтегли актуализацията</string>
+    <string name="downloading_update">Изтегляне на актуализацията…</string>
+    <string name="update_download_complete">Изтеглянето е завършено!\nЗа да актуализирате nthLink, отворете приложението Файлове, намерете най-новия APK на nthLink и го докоснете, за да го инсталирате.</string>
+    <string name="open_files_app">Отворете приложението Файлове</string>
 </resources>

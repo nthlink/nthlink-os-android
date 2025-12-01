@@ -8,7 +8,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDE
 import com.nthlink.android.client.databinding.BottomSheetSwitchBinding
 
 
-class SwitchBottomSheet(private var _binding: BottomSheetSwitchBinding?) : BottomSheetCallback() {
+class SwitchBottomSheet(
+    private var _binding: BottomSheetSwitchBinding?,
+    private var onExpanded: (() -> Unit)?
+) : BottomSheetCallback() {
     private val binding get() = _binding!!
 
     private val behavior = BottomSheetBehavior.from(binding.root).apply {
@@ -28,7 +31,9 @@ class SwitchBottomSheet(private var _binding: BottomSheetSwitchBinding?) : Botto
         }
     }
 
-    override fun onStateChanged(bottomSheet: View, newState: Int) {}
+    override fun onStateChanged(bottomSheet: View, newState: Int) {
+        if (newState == STATE_EXPANDED) onExpanded?.invoke()
+    }
 
     override fun onSlide(bottomSheet: View, slideOffset: Float) {}
 
@@ -45,6 +50,7 @@ class SwitchBottomSheet(private var _binding: BottomSheetSwitchBinding?) : Botto
     }
 
     fun onDestroyView() {
+        onExpanded = null
         behavior.removeBottomSheetCallback(this)
     }
 }

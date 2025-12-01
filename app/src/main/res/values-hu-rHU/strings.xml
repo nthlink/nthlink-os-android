@@ -1,101 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">Az Ön magánélete az első</string>
-
-    <string name="privacy_notice_text">Az nthLink NEM gyűjt személyazonosításra alkalmas információkat vagy az Ön által meglátogatott webhelyeket / online szolgáltatásokat. Az nthLink az Ön IP-címét, az eszköz alapértelmezett nyelvét, a cookie-kat és az alapvető eszközinformációkat ( pl. az operációs rendszer információit) használja a kapott szolgáltatások testreszabásához, például megkeresi a legközelebbi szervereket, amelyek a legjobban tudják támogatni az eszközt, és a megfelelő weboldalt jeleníti meg, amikor csatlakozik az nthLink szerverhez.</string>
-
     <string name="privacy_notice_submit">Elfogadás és folytatás</string>
-
-    <string name="connection_hint_connect">Koppintson a Csatlakozáshoz</string>
-
-    <string name="connection_hint_disconnect">Koppintson a Leválasztáshoz</string>
-
     <string name="connection_label_connect">Csatlakozás</string>
-
     <string name="connection_label_disconnect">Leválasztás</string>
-
-    <string name="connection_server_state_connected">csatlakoztatva</string>
-
     <string name="connection_server_state_initializing">Inicializálás…</string>
-
     <string name="connection_server_state_connecting">Csatlakozás…</string>
-
     <string name="connection_server_state_disconnecting">Leválasztás…</string>
-
     <string name="feedback_page_title">Visszajelzés</string>
-
     <string name="feedback_issue_category_title">Probléma kategória</string>
-
     <string name="feedback_description_title">Leírás</string>
-
     <string name="feedback_note_text">Leírását, e-mail címét (ha megadja) és további információkat elküldjük az nthLink csapatának. Kérjük, tekintse meg az nthLink webhely adatvédelmi szabályzatát az adatgyűjtéssel kapcsolatos irányelveink megismeréséhez.</string>
-
     <string name="feedback_submit">Küld</string>
-
     <string name="feedback_submit_failed_message">Nem lehet csatlakozni az nthlink szerverhez.</string>
-
     <string name="feedback_submit_success_message">Köszönjük, hogy segít a fejlesztésben! Szeretünk hallani Önről.</string>
-
-    <string name="feedback_init_failed_message">Ne legyen szervere</string>
-
     <string name="about_page_title">Rólunk</string>
-
     <string name="about_version">Verzió: %s</string>
-
     <string name="about_text">Tapasztalt szoftver- és információbiztonsági mérnökökből álló csoportot alkotunk, akik 2016-ban indították el az nthLink-et, hogy támogassák azokat az emberi jogi ügyvédeket, akiknek korlátozott információkhoz jutottak, és véleményük kifejtésére van szükségük. Azóta a szolgáltatást a szélesebb nyilvánosság számára is elérhetővé tesszük. Fejlesztőcsapatunk a hálózatbiztonsági technológia és a szolgáltatás-megbízhatóság szakértői.\n\nSzolgáltatásunk ingyenes és továbbra is ingyenes lesz szponzorainknak és partnereinknek köszönhetően. Ők:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nFejlesztőcsapatunk a cenzúra-megkerülési technológia kifinomultságában és a szolgáltatás megbízhatóságában egyaránt kiemelkedő. Az ezen a speciális területen szerzett több éves tapasztalatunkkal a célzott földrajzi területeken lévő felhasználók számára egyszerű, biztonságos és megbízható hozzáférést biztosítunk az egyébként cenzúrázott információkhoz.</string>
-
-    <string name="menu_drawer_item_1">Kezdőoldal</string>
-
+    <string name="menu_drawer_item_1">Csatlakozás</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">Súgó</string>
-
     <string name="menu_drawer_item_5">Értékelje az alkalmazást</string>
-
     <string name="menu_web_item_1">Link másolása</string>
-
     <string name="menu_web_item_2">Megnyitás böngészőben</string>
-
     <string name="menu_web_item_3">Hivatkozás megosztása</string>
-
     <string name="menu_connection_item_1">Nyitóoldal</string>
-
     <string name="word_loading">Betöltés</string>
-
     <string name="word_copied_link">Másolt hivatkozás</string>
-
     <string-array name="issue_categories">
-
         <item>Általános visszajelzés</item>
-
         <item>Nem tud csatlakozni</item>
-
         <item>A kapcsolat sebessége lassú</item>
-
         <item>Javaslatok</item>
-
         <item>Egyéb</item>
-
     </string-array>
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">Letöltés</string>
-
     <string name="copied">Másolva</string>
-
     <string name="copied_telegram_id">Kérem illessze be az azonosítót a Telegramon.</string>
-
     <string name="update">Frissítés</string>
     <string name="update_is_up_to_date">Az alkalmazás naprakész</string>
     <string name="update_canceled">A frissítés törölve</string>
     <string name="update_has_new_apk">Van egy új verzió a nthlink alkalmazásból. Szeretnéd letölteni?</string>
-
     <string name="something_went_wrong">Valami elromlott. Kérjük, próbálja újra.</string>
-
     <string name="follow_us">Kövess minket</string>
     <string name="visit">Látogatás</string>
+    <string name="kill_switch_dialog_description">Ez a művelet megnyitja a VPN beállításokat. Folytatni szeretné?\n\nAz \"OK\" gombra kattintás után érintse meg a fogaskerék ikont az nthlink mellett, hogy engedélyezze az \"Állandó VPN\" és a \"Kapcsolatok blokkolása VPN nélkül\" opciókat.\n\nKérjük, győződjön meg arról, hogy legalább egyszer csatlakozik az nthlink-hez, hogy a rendszer megfelelően jelenítse meg a VPN alkalmazást.</string>
+    <string name="diagnostic">Diagnosztika</string>
+    <string name="start_diagnostics">Diagnosztika indítása</string>
+    <string name="diagnostic_description">A nthLinknél időnként kérjük a segítségét szolgáltatásunk javításához diagnosztikai adatok megadásával.\n\nA gomb megnyomásával a diagnosztikai folyamat elindul, adatokat gyűjt és továbbítja azokat a szervereinkre. Biztos lehet benne, hogy minden összegyűjtött adat teljesen névtelen.</string>
+    <string name="diagnostic_disconnect_alert">A diagnosztika indítása megszakítja az aktuális kapcsolatot.\n\nBiztosan folytatni szeretné?</string>
+    <string name="diagnostic_copy_report_id">Jelentésazonosító másolása</string>
+    <string name="privacy_policy">Adatvédelmi szabályzat</string>
+    <string name="download_update">Frissítés letöltése</string>
+    <string name="downloading_update">Frissítés letöltése…</string>
+    <string name="update_download_complete">Letöltés befejeződött!\nAz nthLink frissítéséhez nyisd meg a Fájlok alkalmazást, keresd meg a legújabb nthLink APK-t, és koppints rá a telepítéshez.</string>
+    <string name="open_files_app">Nyissa meg a Fájlok alkalmazást</string>
 </resources>

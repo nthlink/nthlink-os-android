@@ -12,41 +12,36 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.FragmentWebBinding
+import com.nthlink.android.client.ui.common.BindingFragment
 import com.nthlink.android.client.utils.copyToClipboard
 import com.nthlink.android.client.utils.openWebPage
 import com.nthlink.android.client.utils.removeAllCookies
 import com.nthlink.android.client.utils.shareText
 
-class WebFragment : Fragment(), MenuProvider, WebChrome.Callback {
-    private var _binding: FragmentWebBinding? = null
-    private val binding get() = _binding!!
+class WebFragment : BindingFragment<FragmentWebBinding>(), MenuProvider,
+    CustomWebChromeClient.Callback {
 
     private val args: WebFragmentArgs by navArgs()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentWebBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun bindView(inflater: LayoutInflater, container: ViewGroup?): FragmentWebBinding {
+        return FragmentWebBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         requireActivity().addMenuProvider(this, viewLifecycleOwner)
 
         with(binding.webView) {
-            settings.javaScriptEnabled = true
+            settings.userAgentString = CUSTOM_USER_AGENT
+
             webViewClient = WebViewClient()
-            webChromeClient = WebChrome(this@WebFragment)
+            webChromeClient = CustomWebChromeClient(this@WebFragment)
         }
 
         removeAllCookies {
-            if (_binding != null) binding.webView.loadUrl(args.url)
+            if (isBindingNotNull()) binding.webView.loadUrl(args.url, customExtraHeaders)
         }
     }
 
@@ -95,9 +90,8 @@ class WebFragment : Fragment(), MenuProvider, WebChrome.Callback {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
         binding.webView.webChromeClient = null
         binding.webView.destroy()
-        _binding = null
+        super.onDestroyView()
     }
 }

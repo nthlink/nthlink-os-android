@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/eggshell_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/distance_20_dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/distance_96_dp"
+            android:layout_height="@dimen/distance_96_dp"
+            android:src="@drawable/ic_nthlink_logo_blue" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/work_sans_normal"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_20_sp" />
+
+        <TextView
+            android:id="@+id/update_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/distance_32_dp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/distance_10_dp"
+            tools:text="@string/update_has_new_apk" />
+
+        <Button
+            android:id="@+id/update_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/distance_16_dp"
+            tools:text="@string/download_update" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/distance_16_dp"
+            android:progressTint="@color/telegram_blue" />
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/distance_8_dp"
+            android:gravity="center"
+            tools:text="0%" />
+
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/distance_8_dp"
+            android:gravity="center"
+            android:textColor="#B71C1C"
+            tools:text="Error message" />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

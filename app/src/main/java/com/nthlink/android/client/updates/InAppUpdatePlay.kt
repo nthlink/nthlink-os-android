@@ -16,21 +16,20 @@ import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.appupdate.AppUpdateOptions
 import com.google.android.play.core.install.model.ActivityResult.RESULT_IN_APP_UPDATE_FAILED
 import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.install.model.UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS
-import com.google.android.play.core.install.model.UpdateAvailability.UPDATE_AVAILABLE
 import com.nthlink.android.client.App.Companion.TAG
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class PlayImmediateUpdate(
+class InAppUpdatePlay(
     context: Context,
     private val registry: ActivityResultRegistry,
     private val scope: CoroutineScope
 ) : InAppUpdate(), ActivityResultCallback<ActivityResult> {
     private val appUpdateManager = AppUpdateManagerFactory.create(context)
-    private val appUpdateType = AppUpdateType.IMMEDIATE
 
     private lateinit var launcher: ActivityResultLauncher<IntentSenderRequest>
 
@@ -43,50 +42,47 @@ class PlayImmediateUpdate(
             StartIntentSenderForResult(),
             this
         )
-
-        checkForUpdate(true)
     }
 
     override fun onResume(owner: LifecycleOwner) {
         super.onResume(owner)
 
         // Checks that the update is not stalled during 'onResume()'.
-        appUpdateManager.appUpdateInfo.addOnSuccessListener { info ->
-            if (info.updateAvailability() == DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
-                startAnUpdate(info)
+        scope.launch(IO) {
+            val appUpdateInfo = appUpdateManager.appUpdateInfo.await()
+            if (appUpdateInfo.updateAvailability() == DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+                startUpdate(appUpdateInfo)
             }
         }
     }
 
-    override fun checkForUpdate(silent: Boolean) {
+    override fun checkUpdate(updateIfAvailable: Boolean) {
         scope.launch(IO) {
             try {
-                val info = appUpdateManager.appUpdateInfo.await()
-                if (hasNewUpdate(info)) {
-                    // always be silent
-                    _updateResultFlow.emit(UpdateResult.CheckHasNewUpdate(true))
-                    if (!silent) startAnUpdate(info)
+                val appUpdateInfo = appUpdateManager.appUpdateInfo.await()
+                if (appUpdateInfo.isNewUpdateAvailable()) {
+                    _inAppUpdateFlow.emit(InAppUpdateMessage.NewUpdateAvailable)
+                    if (updateIfAvailable) startUpdate(appUpdateInfo)
                 } else {
-                    _updateResultFlow.emit(UpdateResult.CheckUpToDate(silent))
+                    _inAppUpdateFlow.emit(InAppUpdateMessage.UpToDate(updateIfAvailable))
                 }
             } catch (e: Throwable) {
-                Log.e(TAG, "checkForUpdate error:", e)
-                _updateResultFlow.emit(UpdateResult.CheckFailed(silent))
+                Log.e(TAG, "checkUpdate error:", e)
+                _inAppUpdateFlow.emit(InAppUpdateMessage.CheckFailed(updateIfAvailable))
             }
         }
     }
 
-    private fun hasNewUpdate(info: AppUpdateInfo): Boolean {
-        val isUpdateAvailable = info.updateAvailability() == UPDATE_AVAILABLE
-        val isUpdateAllowed = info.isUpdateTypeAllowed(appUpdateType)
-        return isUpdateAvailable && isUpdateAllowed
+    private fun AppUpdateInfo.isNewUpdateAvailable(): Boolean {
+        return updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
     }
 
-    private fun startAnUpdate(info: AppUpdateInfo) {
+    private fun startUpdate(appUpdateInfo: AppUpdateInfo) {
         appUpdateManager.startUpdateFlowForResult(
-            info,
+            appUpdateInfo,
             launcher,
-            AppUpdateOptions.newBuilder(appUpdateType).build()
+            AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build()
         )
     }
 
@@ -95,17 +91,17 @@ class PlayImmediateUpdate(
             RESULT_OK -> {
                 // The user has accepted the update.
                 // For immediate updates, you might not receive this callback because the update should already be finished by the time control is given back to your app.
-                scope.launch { _updateResultFlow.emit(UpdateResult.UpdateOk) }
+                scope.launch { _inAppUpdateFlow.emit(InAppUpdateMessage.UpdateOk) }
             }
 
             RESULT_CANCELED -> {
                 // The user has denied or canceled the update.
-                scope.launch { _updateResultFlow.emit(UpdateResult.UpdateCanceled) }
+                scope.launch { _inAppUpdateFlow.emit(InAppUpdateMessage.UpdateCanceled) }
             }
 
             RESULT_IN_APP_UPDATE_FAILED -> {
                 // Some other error prevented either the user from providing consent or the update from proceeding.
-                scope.launch { _updateResultFlow.emit(UpdateResult.UpdateFailed) }
+                scope.launch { _inAppUpdateFlow.emit(InAppUpdateMessage.UpdateFailed) }
             }
         }
     }

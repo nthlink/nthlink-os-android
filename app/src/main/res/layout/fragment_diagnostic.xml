@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/eggshell_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/distance_16_dp">
+
+        <ImageView
+            android:id="@+id/about_logo"
+            android:layout_width="@dimen/distance_96_dp"
+            android:layout_height="@dimen/distance_96_dp"
+            android:src="@drawable/ic_nthlink_logo_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/work_sans_normal"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_20_sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/distance_20_dp"
+            android:fontFamily="@font/work_sans_normal"
+            android:lineSpacingExtra="@dimen/distance_10_dp"
+            android:text="@string/diagnostic_description" />
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/distance_20_dp"
+            android:text="@string/start_diagnostics" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/work_sans_normal"
+            android:lineSpacingExtra="@dimen/distance_10_dp"
+            tools:text="@string/feedback_submit_success_message" />
+
+        <Button
+            android:id="@+id/copy_report_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/distance_20_dp"
+            android:text="@string/diagnostic_copy_report_id" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

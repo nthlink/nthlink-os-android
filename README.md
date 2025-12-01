@@ -1,46 +1,62 @@
 # nthlink Android App
 
-Welcome to nthlink open source! This project is designed to help you efficiently build your own VPN
-app.
+An open-source VPN app framework built with [Leaf](https://github.com/eycorsican/leaf)
+and [nthlink-outline](https://github.com/nthlink/nthlink-outline) VPN SDKs. This project provides a
+complete Android VPN app template - you just need to implement the core VPN logic and backend
+integration.
 
-We're using [leaf](https://github.com/eycorsican/leaf)
-and [nthlink-outline](https://github.com/nthlink/nthlink-outline) as our VPN protocol SDK.
-More details about [Outline](https://getoutline.org/).
+## Quick Start
 
-## Build your own VPN App
+Search for `TODO` in the project to find all implementation points. You need to implement **2 files
+** in the `core` module:
 
-You can globally search `TODO` in the project to find the places where you need to implement.
+### 1. Backend Integration (`core/.../Core.kt`)
 
-### The functions need to be implemented
+Implement these 5 functions:
 
-Open `Core.kt` in the `core` module, there are couple of functions you have to implement.
+```kotlin
+// Encrypt/decrypt data for secure storage
+fun encrypt(text: String): String
+fun decrypt(cipherText: String): String
 
-- `fun encrypt(text: String): String`
+// Fetch VPN servers and app content from your backend
+// Returns JSON with: servers, redirectUrl, headlineNews, notifications, current_versions
+fun getConfig(): String
 
-> Preference content encryption.
+// Send user feedback to your backend
+fun feedback(feedbackType: String, description: String, appVersion: String, email: String)
 
-- `fun decrypt(cipherText: String): String`
+// Run diagnostics and return a report ID
+fun startDiagnostics(): String
+```
 
-> Preference content decryption.
+### 2. VPN Client (`core/.../RootVpnClient.kt`)
 
-- `fun getConfig(): String`
+Implement these 3 functions:
 
-> Get VPN servers and other information
+```kotlin
+// Start VPN with server list (auto-select best server)
+override suspend fun runVpn(servers: List<Config.Server>)
 
-- `fun feedback(feedbackType: String, description: String = EMPTY, appVersion: String = EMPTY, email: String = EMPTY)`
+// Start VPN with custom config string
+override suspend fun runVpn(config: String)
 
-> Send users' feedback
+// Stop VPN and clean up resources
+override fun disconnect()
+```
 
-Open `RootVpnClient.kt` in the `core` module, there are couple of functions you have to implement.
+## Implementation Steps
 
-- `fun runVpn(servers: List<Config.Server>)`
+1. Clone the repository
+2. Search for `TODO` markers in the code
+3. Implement `Core.kt` backend functions
+4. Implement `RootVpnClient.kt` VPN functions using Leaf/Outline SDK
+5. Test connection, disconnection, and error handling
+6. Customize branding (app name, icon, colors, strings)
+7. Build and release your VPN app
 
-> Start VPN connection with the `Config` class.
+## Learn More
 
-- `fun runVpn(config: String)`
-
-> Start VPN connection with string.
-
-- `fun disconnect()`
-
-> Stop VPN connection
+- [Leaf VPN SDK](https://github.com/eycorsican/leaf)
+- [nthlink-outline](https://github.com/nthlink/nthlink-outline)
+- [Outline VPN](https://getoutline.org/)

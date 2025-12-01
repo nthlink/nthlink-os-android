@@ -1,102 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="privacy_notice_title">خصوصيتك تأتي أولاً</string>
-
-    <string name="privacy_notice_text">لا تجمع nthLink معلومات التعريف الشخصية أو مواقع الويب / الخدمات عبر الإنترنت التي تزورها. يستخدم nthLink عنوان IP الخاص بك واللغة الافتراضية للجهاز وملفات تعريف الارتباط ومعلومات الجهاز الأساسية ( مثل معلومات نظام التشغيل) لتخصيص الخدمات التي تتلقاها مثل تحديد موقع أقرب الخوادم التي يمكنها دعم جهازك بشكل أفضل وعرض صفحة الويب المناسبة عند الاتصال بـ خادم nthLink.</string>
-
     <string name="privacy_notice_submit">اقبل واستمر</string>
-
-    <string name="connection_hint_connect">اضغط للاتصال</string>
-
-    <string name="connection_hint_disconnect">انقر لقطع الاتصال</string>
-
     <string name="connection_label_connect">الاتصال</string>
-
     <string name="connection_label_disconnect">قطع الاتصال</string>
-
-    <string name="connection_server_state_connected">متصل</string>
-
     <string name="connection_server_state_initializing">جاري التهيئة…</string>
-
     <string name="connection_server_state_connecting">توصيل…</string>
-
     <string name="connection_server_state_disconnecting">جارٍ قطع الاتصال…</string>
-
     <string name="feedback_page_title">تعليق</string>
-
     <string name="feedback_issue_category_title">فئة المشكلة</string>
-
     <string name="feedback_description_title">وصف</string>
-
     <string name="feedback_note_text">سيتم إرسال وصفك وعنوان بريدك الإلكتروني (إن وجد) والمعلومات الإضافية إلى فريق nthLink. يرجى الرجوع إلى سياسة الخصوصية الخاصة بموقع nthLink للاطلاع على سياسة جمع البيانات الخاصة بنا.</string>
-
     <string name="feedback_submit">إرسال</string>
-
     <string name="feedback_submit_failed_message">لا يمكن الاتصال بخادم nthlink.</string>
-
     <string name="feedback_submit_success_message">شكرا لمساعدتنا على التحسين! نحن نحب أن نسمع منك.</string>
-
-    <string name="feedback_init_failed_message">ليس لديك خادم</string>
-
     <string name="about_page_title">عن</string>
-
     <string name="about_version">الإصدار %s</string>
-
     <string name="about_text">نحن مجموعة من مهندسي البرمجيات وأمن المعلومات ذوي الخبرة الذين أنشأنا nthLink في عام 2016 لدعم محامي حقوق الإنسان الذين يحتاجون إلى الحصول على معلومات مقيدة والتعبير عن وجهات نظرهم. ومنذ ذلك الحين جعلنا الخدمة متاحة للجمهور على نطاق أوسع. فريق التطوير لدينا هم خبراء في كل من تكنولوجيا أمن الشبكات وموثوقية الخدمة.\n\nخدمتنا مجانية وستظل مجانية بفضل الرعاة والشركاء. هم:\n• Open Technology Fund\n• Google Jigsaw\n• Cure53\n• Include Security\n• Plaintext Design\n\nيتفوق فريق التطوير لدينا في كل من تطور تقنية التحايل على الرقابة وموثوقية الخدمة. مع سنوات من الخبرة في هذا المجال التخصصي ، نوفر للمستخدمين في المناطق الجغرافية المستهدفة وصولًا بسيطًا وآمنًا وموثوقًا إلى المعلومات الخاضعة للرقابة.</string>
-
-    <string name="menu_drawer_item_1">مسكن</string>
-
+    <string name="menu_drawer_item_1">اتصل</string>
     <string name="menu_drawer_item_2">@string/feedback_page_title</string>
-
     <string name="menu_drawer_item_3">@string/about_page_title</string>
-
     <string name="menu_drawer_item_4">يساعد</string>
-
     <string name="menu_drawer_item_5">قيم التطبيق</string>
-
     <string name="menu_web_item_1">نسخ الوصلة</string>
-
     <string name="menu_web_item_2">فتح في المتصفح</string>
-
     <string name="menu_web_item_3">رابط المشاركة</string>
-
     <string name="menu_connection_item_1">الصفحة المقصودة</string>
-
     <string name="word_loading">جار التحميل</string>
-
     <string name="word_copied_link">رابط تم نسخه</string>
-
     <string-array name="issue_categories">
-
         <item>ملاحظات عامة</item>
-
         <item>لا يمكن الاتصال</item>
-
         <item>سرعة الاتصال بطيئة</item>
-
         <item>اقتراحات</item>
-
         <item>آخر</item>
-
     </string-array>
-
     <string name="url_faq">https://www.nthlink.com/#faq</string>
-
     <string name="url_policies">https://nthlink.com/policies/</string>
-
     <string name="download">تحميل</string>
-
     <string name="copied">تم النسخ</string>
-
     <string name="copied_telegram_id">يرجى لصق المعرف على Telegram</string>
-
     <string name="update">تحديث</string>
     <string name="update_is_up_to_date">تطبيقك محدث</string>
     <string name="update_canceled">تم إلغاء التحديث</string>
     <string name="update_has_new_apk">هناك إصدار جديد من nthlink. هل ترغب في التحميل؟</string>
-
     <string name="something_went_wrong">حدث خطأ ما. يرجى المحاولة مرة أخرى.</string>
-
     <string name="follow_us">تابعنا</string>
     <string name="visit">زيارة</string>
+    <string name="kill_switch_dialog_description">سيؤدي هذا الإجراء إلى فتح إعدادات VPN. هل تريد المتابعة؟\n\nبعد النقر على \"موافق\"، اضغط على رمز الترس بجوار nthlink لتمكين \"VPN دائمًا\" و\"حظر الاتصالات بدون VPN.\"\n\nيرجى التأكد من الاتصال بـ nthlink مرة واحدة على الأقل للتأكد من أن النظام يعرض تطبيق VPN بشكل صحيح.</string>
+    <string name="diagnostic">تشخيص</string>
+    <string name="start_diagnostics">ابدأ التشخيصات</string>
+    <string name="diagnostic_description">في nthLink، نطلب منك أحيانًا المساعدة لتحسين خدمتنا من خلال تقديم بيانات تشخيصية.\n\nعند النقر على الزر، تبدأ عملية التشخيص، حيث يتم جمع المعلومات وإرسالها إلى خوادمنا. نؤكد لك أن جميع المعلومات المجمعة مجهولة تمامًا.</string>
+    <string name="diagnostic_disconnect_alert">بدء التشخيص سيقطع الاتصال الحالي.\n\nهل أنت متأكد أنك تريد المتابعة؟</string>
+    <string name="diagnostic_copy_report_id">نسخ معرف التقرير</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="download_update">تنزيل التحديث</string>
+    <string name="downloading_update">جارٍ تنزيل التحديث…</string>
+    <string name="update_download_complete">اكتمل التنزيل!\nلتحديث nthLink، افتح تطبيق الملفات، وابحث عن أحدث ملف APK الخاص بـ nthLink، ثم اضغط عليه لتثبيته.</string>
+    <string name="open_files_app">افتح تطبيق الملفات</string>
 </resources>

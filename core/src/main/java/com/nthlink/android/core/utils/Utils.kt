@@ -1,26 +1,43 @@
 package com.nthlink.android.core.utils
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
+import android.net.NetworkCapabilities.TRANSPORT_BLUETOOTH
+import android.net.NetworkCapabilities.TRANSPORT_CELLULAR
+import android.net.NetworkCapabilities.TRANSPORT_ETHERNET
+import android.net.NetworkCapabilities.TRANSPORT_WIFI
+import java.time.OffsetDateTime
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 // Constants
 internal const val TAG = "RootVpn"
-internal const val EMPTY = ""
+const val EMPTY = ""
+const val ZERO = 0
+const val NO_RESOURCE = ZERO
 
-internal fun Context.isOnline(): Boolean {
-    val connectivityManager = getSystemService(ConnectivityManager::class.java)
+// Patterns for formatting
+internal const val PATTERN_LOCALIZED_ZONE_OFFSET = "O"
+internal const val PATTERN_DATE_TIME = "yyyy-MM-dd HH:mm:ss"
 
-    val network = connectivityManager.activeNetwork ?: return false
-    val networkCapabilities =
-        connectivityManager.getNetworkCapabilities(network) ?: return false
-    return when {
-        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
-        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+internal fun getTimeZoneAbbreviation(): String {
+    return ZonedDateTime.now().format(DateTimeFormatter.ofPattern(PATTERN_LOCALIZED_ZONE_OFFSET))
+}
+
+internal fun nowInUtc(pattern: String = PATTERN_DATE_TIME): String {
+    return OffsetDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ofPattern(pattern))
+}
+
+fun isOnline(context: Context): Boolean = context.getConnectivityManager().run {
+    val network = activeNetwork ?: return false
+    val networkCapabilities = getNetworkCapabilities(network) ?: return false
+    return@run when {
+        networkCapabilities.hasTransport(TRANSPORT_WIFI) -> true
+        networkCapabilities.hasTransport(TRANSPORT_CELLULAR) -> true
         // for other device how are able to connect with Ethernet
-        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+        networkCapabilities.hasTransport(TRANSPORT_ETHERNET) -> true
         // for check internet over Bluetooth
-        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH) -> true
+        networkCapabilities.hasTransport(TRANSPORT_BLUETOOTH) -> true
         else -> false
     }
 }

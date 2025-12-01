@@ -6,6 +6,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import com.nthlink.android.core.Root.DiagnosticResult
 import com.nthlink.android.core.Root.Error
 import com.nthlink.android.core.Root.Status
 import com.nthlink.android.core.model.Config
@@ -19,14 +20,18 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 internal abstract class RootVpn(private val context: Context) : Root, DefaultLifecycleObserver {
     private val _statusFlow = MutableStateFlow(Status.DISCONNECTED)
-    override val statusFlow: StateFlow<Status> = _statusFlow
+    override val statusFlow: StateFlow<Status> get() = _statusFlow
 
     private val _errorFlow = MutableSharedFlow<Error>()
-    override val errorFlow: SharedFlow<Error> = _errorFlow
+    override val errorFlow: SharedFlow<Error> get() = _errorFlow
+
+    private val _diagnosticResultFlow = MutableSharedFlow<DiagnosticResult>()
+    override val diagnosticResultFlow: SharedFlow<DiagnosticResult> get() = _diagnosticResultFlow.asSharedFlow()
 
     private lateinit var scope: LifecycleCoroutineScope
 
@@ -34,31 +39,56 @@ internal abstract class RootVpn(private val context: Context) : Root, DefaultLif
         scope = owner.lifecycleScope
     }
 
-    override fun connect() {
+    override fun connect(config: String) {
         scope.launch(IO) {
             updateStatus(Status.INITIALIZING)
 
             // check internet
-            if (!context.isOnline()) {
+            if (!isOnline(context)) {
                 updateStatus(Status.DISCONNECTED)
                 emitError(Error.NO_INTERNET)
                 return@launch
             }
 
-            try {
-                // get config from Directory Server
-                val config = JsonParser.toConfig(Core.getConfig())
-
-                // save config
-                saveConfig(context, config)
-
-                // run VPN
-                if (config.useCustom) runVpn(config.custom) else runVpn(config.servers)
-            } catch (e: Throwable) {
-                Log.e(TAG, "get config error: ", e)
-                updateStatus(Status.DISCONNECTED)
-                emitError(Error.GET_CONFIG_ERROR)
+            // check if there is a config from client
+            if (config.isNotEmpty()) {
+                runVpn(config)
+            } else {
+                getConfigFromDirectoryServer()
             }
+        }
+    }
+
+    private suspend fun getConfigFromDirectoryServer() {
+        try {
+            // get config from Directory Server
+            val config = JsonParser.toConfig(Core.getConfig())
+
+            // save config
+            saveConfig(context, config)
+
+            // run VPN
+            if (config.useCustomConfig) {
+                if (config.customConfig.isEmpty()) {
+                    updateStatus(Status.DISCONNECTED)
+                    emitError(Error.INVALID_CONFIG)
+                    return
+                }
+
+                runVpn(config.customConfig)
+            } else {
+                if (config.servers.isEmpty()) {
+                    updateStatus(Status.DISCONNECTED)
+                    emitError(Error.NO_PROXY_AVAILABLE)
+                    return
+                }
+
+                runVpn(config.servers)
+            }
+        } catch (e: Throwable) {
+            Log.e(TAG, "get config error: ", e)
+            updateStatus(Status.DISCONNECTED)
+            emitError(Error.GET_CONFIG_ERROR)
         }
     }
 
@@ -72,5 +102,22 @@ internal abstract class RootVpn(private val context: Context) : Root, DefaultLif
 
     protected suspend fun emitError(error: Error) = _errorFlow.emit(error)
 
-    override suspend fun getConfig(): Config = readConfig(context)
+    override suspend fun getConfig(): Config? = readConfig(context)
+
+    override fun startDiagnostics() {
+        scope.launch(IO) {
+            // disconnect VPN
+            if (status != Status.DISCONNECTED) disconnect()
+
+            // check internet
+            if (!isOnline(context)) {
+                _diagnosticResultFlow.emit(DiagnosticResult.ErrNoInternet)
+                return@launch
+            }
+
+            val reportId = Core.startDiagnostics()
+
+            _diagnosticResultFlow.emit(DiagnosticResult.Ok(reportId))
+        }
+    }
 }

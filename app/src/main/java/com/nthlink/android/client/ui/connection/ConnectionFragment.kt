@@ -12,21 +12,20 @@ import android.view.ViewGroup
 import androidx.core.view.MenuProvider
 import androidx.core.view.get
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.nthlink.android.client.App.Companion.TAG
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.FragmentConnectionBinding
-import com.nthlink.android.client.storage.datastore.readConnectedCount
-import com.nthlink.android.client.storage.datastore.readHasLandingPageShown
-import com.nthlink.android.client.storage.datastore.saveConnectedCount
-import com.nthlink.android.client.storage.datastore.saveHasLandingPageShown
+import com.nthlink.android.client.storage.datastore.CommonDataStore
 import com.nthlink.android.client.storage.sql.NewsAnalyzer
+import com.nthlink.android.client.ui.common.BindingFragment
 import com.nthlink.android.client.utils.MarginItemDecoration
-import com.nthlink.android.client.utils.NO_RESOURCE
 import com.nthlink.android.client.utils.getColor
 import com.nthlink.android.client.utils.getDb
+import com.nthlink.android.client.utils.getRoot
 import com.nthlink.android.client.utils.installFromGooglePlay
 import com.nthlink.android.client.utils.removeAllCookies
 import com.nthlink.android.client.utils.requireRatingApp
@@ -35,23 +34,23 @@ import com.nthlink.android.client.utils.vibrate
 import com.nthlink.android.core.Root
 import com.nthlink.android.core.Root.Error
 import com.nthlink.android.core.Root.Status
+import com.nthlink.android.core.utils.NO_RESOURCE
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.android.ext.android.inject
 
-class ConnectionFragment : Fragment(), MenuProvider {
-    private var _binding: FragmentConnectionBinding? = null
-    private val binding get() = _binding!!
-
+class ConnectionFragment : BindingFragment<FragmentConnectionBinding>(), MenuProvider {
     private val newsAdapter = NewsAdapter()
+    private val dataStore: CommonDataStore by inject()
 
     private var landingPage: MenuItem? = null
     private var hasLandingPageShown: Boolean = false
 
-    private lateinit var vpn: Root
+    private lateinit var root: Root
     private lateinit var newsAnalyzer: NewsAnalyzer
     private lateinit var switch: SwitchBottomSheet
 
@@ -60,33 +59,40 @@ class ConnectionFragment : Fragment(), MenuProvider {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        vpn = Root.Builder().build(this)
-
         newsAnalyzer = NewsAnalyzer(getDb().clickedNewsDao(), lifecycleScope)
 
         // restore hasLandingPageShown
         lifecycleScope.launch(IO) {
-            hasLandingPageShown = readHasLandingPageShown(requireContext())
+            hasLandingPageShown = dataStore.readHasLandingPageShown()
         }
     }
 
-    override fun onCreateView(
+    override fun bindView(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentConnectionBinding.inflate(inflater, container, false)
-        switch = SwitchBottomSheet(binding.switchBottomSheet)
-        return binding.root
+        container: ViewGroup?
+    ): FragmentConnectionBinding {
+        return FragmentConnectionBinding.inflate(inflater, container, false).also {
+            switch = SwitchBottomSheet(it.switchBottomSheet, ::onSwitchExpanded)
+        }
+    }
+
+    private fun onSwitchExpanded() {
+        if (root.status == Status.CONNECTED && binding.newsList.isVisible) {
+            removeAllCookies {
+                newsAdapter.submitList(newsAnalyzer.getPinnedAndRecommendedNews())
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        root = getRoot()
+
         binding.switchBottomSheet.dragHandle.setOnClickListener {
-            if (vpn.status == Status.CONNECTED) switch.toggle()
+            if (root.status == Status.CONNECTED) switch.toggle()
         }
 
         binding.switchBottomSheet.toggle.setOnClickListener {
-            vpn.toggle()
+            toggle()
             vibrate()
         }
 
@@ -101,13 +107,23 @@ class ConnectionFragment : Fragment(), MenuProvider {
         requireActivity().addMenuProvider(this, viewLifecycleOwner)
 
         vpnFlowsJob = lifecycleScope.launch {
-            launch {
-                vpn.statusFlow.collect { updateUI(it) }
-            }
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    root.statusFlow.collect { updateUI(it) }
+                }
 
-            launch {
-                vpn.errorFlow.collect { showError(it) }
+                launch {
+                    root.errorFlow.collect { showError(it) }
+                }
             }
+        }
+    }
+
+    private fun toggle() {
+        if (root.status == Status.DISCONNECTED) {
+            root.connect()
+        } else {
+            root.disconnect()
         }
     }
 
@@ -191,7 +207,7 @@ class ConnectionFragment : Fragment(), MenuProvider {
                     if (hasLandingPageShown) loadConfig() else launchLeadingPage()
 
                     lifecycleScope.launch {
-                        saveConnectedCount(this@ConnectionFragment.requireContext())
+                        dataStore.saveConnectedCount()
                     }
                 }
 
@@ -221,7 +237,7 @@ class ConnectionFragment : Fragment(), MenuProvider {
             Error.INVALID_CONFIG -> R.string.error_invalid_config
             Error.GET_CONFIG_ERROR -> R.string.error_directory_server
             Error.NO_PROXY_AVAILABLE -> R.string.error_no_proxy_available
-            Error.VPN_SERVICE_NOT_EXISTS, Error.CREATE_TUN_FAILED -> R.string.error_vpn_service
+            Error.VPN_SERVICE_NOT_EXISTS, Error.CREATE_TUN_FAILED, Error.START_LEAF_FAILED -> R.string.error_vpn_service
         }
 
         if (resource == NO_RESOURCE) return
@@ -240,7 +256,7 @@ class ConnectionFragment : Fragment(), MenuProvider {
 
     private fun loadConfig() {
         lifecycleScope.launch(IO) {
-            val config = vpn.getConfig()
+            val config = root.getConfig() ?: return@launch
 
             // news
             newsAnalyzer.loadNews(config)
@@ -250,7 +266,7 @@ class ConnectionFragment : Fragment(), MenuProvider {
                 binding.staticIndicator.isVisible = config.static
 
                 removeAllCookies {
-                    newsAdapter.submitList(newsAnalyzer.getRecommendedNews())
+                    newsAdapter.submitList(newsAnalyzer.getPinnedAndRecommendedNews())
                 }
             }
         }
@@ -269,14 +285,14 @@ class ConnectionFragment : Fragment(), MenuProvider {
 
         lifecycleScope.launch {
             delay(600)
-            val count = readConnectedCount(this@ConnectionFragment.requireContext())
+            val count = dataStore.readConnectedCount()
             if (count in setOf(10, 15, 20)) requireRatingApp(requireActivity())
         }
     }
 
     private fun launchLeadingPage() {
         lifecycleScope.launch {
-            val url = vpn.getConfig().redirectUrl
+            val url = root.getConfig()?.redirectUrl ?: return@launch
             if (url.isNotEmpty()) {
                 hasLandingPageShown = true
                 openWebFragment(url)
@@ -297,7 +313,7 @@ class ConnectionFragment : Fragment(), MenuProvider {
     override fun onPrepareMenu(menu: Menu) {
         super.onPrepareMenu(menu)
 
-        landingPage = menu[0].apply { isVisible = vpn.status == Status.CONNECTED }
+        landingPage = menu[0].apply { isVisible = root.status == Status.CONNECTED }
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -314,16 +330,17 @@ class ConnectionFragment : Fragment(), MenuProvider {
     override fun onStop() {
         super.onStop()
 
-        lifecycleScope.launch(IO) { saveHasLandingPageShown(requireContext(), hasLandingPageShown) }
+        lifecycleScope.launch(IO) {
+            dataStore.saveHasLandingPageShown(hasLandingPageShown)
+        }
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
-
         vpnFlowsJob?.cancel()
         vpnFlowsJob = null
 
         switch.onDestroyView()
-        _binding = null
+
+        super.onDestroyView()
     }
 }

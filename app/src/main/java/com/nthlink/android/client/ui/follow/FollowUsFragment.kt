@@ -4,26 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.nthlink.android.client.R
 import com.nthlink.android.client.databinding.FragmentFollowUsBinding
+import com.nthlink.android.client.ui.common.BindingFragment
 import com.nthlink.android.client.utils.copyToClipboard
 import com.nthlink.android.client.utils.getLoadWebUrlIntent
 import com.nthlink.android.client.utils.openWebPage
-import com.nthlink.android.client.utils.showAlertDialog
+import com.nthlink.android.client.utils.showMaterialAlertDialog
 
-
-class FollowUsFragment : Fragment() {
-    private var _binding: FragmentFollowUsBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
+class FollowUsFragment : BindingFragment<FragmentFollowUsBinding>() {
+    override fun bindView(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFollowUsBinding.inflate(inflater, container, false)
-        return binding.root
+        container: ViewGroup?
+    ): FragmentFollowUsBinding {
+        return FragmentFollowUsBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,17 +66,12 @@ class FollowUsFragment : Fragment() {
 
             tgId.setOnClickListener {
                 copyToClipboard("telegram id", "@nthLinkVPN")
-                showAlertDialog {
+                showMaterialAlertDialog {
                     setTitle(R.string.copied)
                     setMessage(R.string.copied_telegram_id)
                     setPositiveButton(R.string.ok) { dialog, _ -> dialog.dismiss() }
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

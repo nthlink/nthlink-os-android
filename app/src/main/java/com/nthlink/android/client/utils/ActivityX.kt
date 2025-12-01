@@ -9,7 +9,7 @@ fun AppCompatActivity.showAlertDialog(
     @StringRes messageRes: Int,
     cancelable: Boolean = false
 ) {
-    showMaterialAlertDialog(context = this) {
+    showMaterialAlertDialog(this) {
         setTitle(titleRes)
         setMessage(messageRes)
         setCancelable(cancelable)
@@ -23,7 +23,7 @@ fun AppCompatActivity.showAlertDialog(
     cancelable: Boolean = false,
     okListener: () -> Unit
 ) {
-    showMaterialAlertDialog(context = this) {
+    showMaterialAlertDialog(this) {
         setTitle(titleRes)
         setMessage(messageRes)
         setCancelable(cancelable)

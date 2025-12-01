@@ -4,27 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.nthlink.android.client.databinding.FragmentLaunchBinding
-import com.nthlink.android.client.storage.datastore.readAgreePrivacy
+import com.nthlink.android.client.storage.datastore.CommonDataStore
 import com.nthlink.android.client.ui.LaunchActivity
+import com.nthlink.android.client.ui.common.BindingFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
-class LaunchFragment : Fragment() {
+class LaunchFragment : BindingFragment<FragmentLaunchBinding>() {
+    private val commonDataStore: CommonDataStore by inject()
 
-    private var _binding: FragmentLaunchBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentLaunchBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun bindView(inflater: LayoutInflater, container: ViewGroup?): FragmentLaunchBinding {
+        return FragmentLaunchBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,7 +26,7 @@ class LaunchFragment : Fragment() {
 
         lifecycleScope.launch {
             delay(2000)
-            if (readAgreePrivacy(this@LaunchFragment.requireContext())) {
+            if (commonDataStore.readAgreePrivacy()) {
                 (requireActivity() as LaunchActivity).moveToMainActivity()
             } else {
                 findNavController().navigate(
@@ -40,10 +34,5 @@ class LaunchFragment : Fragment() {
                 )
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

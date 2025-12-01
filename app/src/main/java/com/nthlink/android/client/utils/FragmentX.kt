@@ -7,7 +7,7 @@ import android.os.VibrationAttributes
 import android.os.VibrationEffect
 import android.os.Vibrator
 import androidx.annotation.ColorRes
-import androidx.annotation.StyleRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -15,6 +15,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.nthlink.android.client.App
 import com.nthlink.android.client.R
 import com.nthlink.android.client.storage.sql.AppDatabase
+import com.nthlink.android.client.ui.MainActivity
+import com.nthlink.android.core.utils.NO_RESOURCE
 
 fun Fragment.showProgressDialog(): ProgressDialog = ProgressDialog.show(
     requireContext(),
@@ -23,6 +25,23 @@ fun Fragment.showProgressDialog(): ProgressDialog = ProgressDialog.show(
     true,
     false
 )
+
+fun Fragment.showMessageDialog(
+    @StringRes messageId: Int,
+    @StringRes positiveText: Int = R.string.ok,
+    onPositive: (() -> Unit)? = null,
+    @StringRes negativeText: Int = R.string.cancel,
+    onNegative: (() -> Unit)? = null
+) {
+    showMessageDialog(
+        requireContext(),
+        messageId,
+        positiveText,
+        onPositive,
+        negativeText,
+        onNegative
+    )
+}
 
 fun Fragment.vibrate() {
     val vibrator = requireContext().getSystemService(Vibrator::class.java)
@@ -39,21 +58,20 @@ fun Fragment.vibrate() {
 
 fun Fragment.getDb(): AppDatabase = (requireActivity().application as App).db
 
-fun Fragment.getColor(@ColorRes resId: Int) = ContextCompat.getColor(requireContext(), resId)
+fun Fragment.getMainActivity() = (requireActivity() as MainActivity)
 
-fun Fragment.copyToClipboard(label: String, text: String) {
-    copyToClipboard(requireContext(), label, text)
-}
+fun Fragment.getRoot() = getMainActivity().root
+
+fun Fragment.getColor(@ColorRes resId: Int) = ContextCompat.getColor(requireContext(), resId)
 
 fun Fragment.showMaterialAlertDialog(
     overrideThemeResId: Int = NO_RESOURCE,
     setBuilder: MaterialAlertDialogBuilder.() -> Unit
 ): AlertDialog = showMaterialAlertDialog(requireContext(), overrideThemeResId, setBuilder)
 
-fun Fragment.showAlertDialog(
-    @StyleRes themeResId: Int = NO_RESOURCE,
-    setBuilder: AlertDialog.Builder.() -> Unit
-): AlertDialog = showAlertDialog(requireContext(), themeResId, setBuilder)
+fun Fragment.copyToClipboard(label: String, text: String) {
+    copyToClipboard(requireContext(), label, text)
+}
 
 fun Fragment.openWebPage(url: String) {
     val intent = getLoadWebUrlIntent(url)

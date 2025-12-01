@@ -5,7 +5,6 @@ import com.nthlink.android.core.model.Config
 import kotlinx.coroutines.delay
 
 internal class RootVpnClient(context: Context) : RootVpn(context) {
-
     override suspend fun runVpn(servers: List<Config.Server>) {
         // TODO Not yet implemented
         runVpn("")
